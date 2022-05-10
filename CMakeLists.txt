@@ -6,7 +6,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(HEADERS )
+set(MAIN src/main_CLI.cpp)
 
 find_package(Qt6 COMPONENTS
         Core
@@ -15,6 +15,7 @@ find_package(Qt6 COMPONENTS
         REQUIRED)
 
 add_executable(GeometricShapes src/main.cpp)
+add_executable(CLI ${MAIN})
 
 target_link_libraries(GeometricShapes
         Qt::Core
