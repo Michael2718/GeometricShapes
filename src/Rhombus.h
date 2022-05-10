@@ -1,0 +1,8 @@
+//
+// Created by michael on 5/10/22.
+//
+
+#ifndef GEOMETRICSHAPES_RHOMBUS_H
+#define GEOMETRICSHAPES_RHOMBUS_H
+
+#endif //GEOMETRICSHAPES_RHOMBUS_H

@@ -1,15 +1,12 @@
 cmake_minimum_required(VERSION 3.22)
-project(GeometricShapes VERSION 0.1)
+project(GeometricShapes)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-#set(HEADERS src)
-
-set(HEADERS src/Shape.h src/ShapeSubclasses/QuadrangleSubclasses/Rectangle.h)
-set(SOURCES src/main_CLI.cpp src/Shape.cpp src/ShapeSubclasses/QuadrangleSubclasses/Rectangle.cpp)
+set(HEADERS )
 
 find_package(Qt6 COMPONENTS
         Core
@@ -17,10 +14,7 @@ find_package(Qt6 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(GeometricShapes src/main.cpp src/Shape.cpp src/Shape.h)
-
-add_executable(GeometricShapesCLI ${SOURCES} ${HEADERS})
-#target_include_directories(GeometricShapesCLI PRIVATE src)
+add_executable(GeometricShapes src/main.cpp)
 
 target_link_libraries(GeometricShapes
         Qt::Core

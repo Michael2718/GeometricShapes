@@ -1,10 +1,8 @@
+//
+// Created by michael on 5/10/22.
+//
+
 #ifndef GEOMETRICSHAPES_COMPLEXSHAPE_H
 #define GEOMETRICSHAPES_COMPLEXSHAPE_H
-
-
-class ComplexShape {
-
-};
-
 
 #endif //GEOMETRICSHAPES_COMPLEXSHAPE_H

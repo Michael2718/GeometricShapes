@@ -1,0 +1,8 @@
+//
+// Created by michael on 5/10/22.
+//
+
+#ifndef GEOMETRICSHAPES_RECTANGLE_H
+#define GEOMETRICSHAPES_RECTANGLE_H
+
+#endif //GEOMETRICSHAPES_RECTANGLE_H
