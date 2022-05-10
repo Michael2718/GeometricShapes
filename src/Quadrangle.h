@@ -1,0 +1,8 @@
+//
+// Created by michael on 5/10/22.
+//
+
+#ifndef GEOMETRICSHAPES_QUADRANGLE_H
+#define GEOMETRICSHAPES_QUADRANGLE_H
+
+#endif //GEOMETRICSHAPES_QUADRANGLE_H
