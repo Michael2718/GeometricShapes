@@ -1,8 +1,9 @@
-//
-// Created by michael on 5/10/22.
-//
-
 #ifndef GEOMETRICSHAPES_SHAPE_H
 #define GEOMETRICSHAPES_SHAPE_H
+
+class Shape {
+
+};
+
 
 #endif //GEOMETRICSHAPES_SHAPE_H

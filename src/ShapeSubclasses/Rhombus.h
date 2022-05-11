@@ -1,8 +1,10 @@
-//
-// Created by michael on 5/10/22.
-//
-
 #ifndef GEOMETRICSHAPES_RHOMBUS_H
 #define GEOMETRICSHAPES_RHOMBUS_H
+
+
+class Rhombus {
+
+};
+
 
 #endif //GEOMETRICSHAPES_RHOMBUS_H

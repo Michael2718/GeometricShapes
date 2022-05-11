@@ -1,8 +1,10 @@
-//
-// Created by michael on 5/10/22.
-//
-
 #ifndef GEOMETRICSHAPES_TRAPEZOID_H
 #define GEOMETRICSHAPES_TRAPEZOID_H
+
+
+class Trapezoid {
+
+};
+
 
 #endif //GEOMETRICSHAPES_TRAPEZOID_H
