@@ -1,8 +1,11 @@
 #include <iostream>
-
+//#include "Shape.h"
+#include "ShapeSubclasses/Rectangle.h"
 using std::cout, std::cin;
 
 int main() {
-    cout << "Hello world2";
+    Rectangle a(2, 4, 6);
+
+    cout << a.GetA();
     return 0;
 }
