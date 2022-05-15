@@ -8,8 +8,8 @@ set(CMAKE_AUTOUIC ON)
 
 #set(HEADERS src)
 
-set(HEADERS src/Shape.h src/ShapeSubclasses/Rectangle.h)
-set(SOURCES src/main_CLI.cpp src/Shape.cpp src/ShapeSubclasses/Rectangle.cpp)
+set(HEADERS src/Shape.h src/ShapeSubclasses/QuadrangleSubclasses/Rectangle.h)
+set(SOURCES src/main_CLI.cpp src/Shape.cpp src/ShapeSubclasses/QuadrangleSubclasses/Rectangle.cpp)
 
 find_package(Qt6 COMPONENTS
         Core

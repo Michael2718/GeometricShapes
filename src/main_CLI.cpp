@@ -1,6 +1,6 @@
 #include <iostream>
 //#include "Shape.h"
-#include "ShapeSubclasses/Rectangle.h"
+#include "ShapeSubclasses/QuadrangleSubclasses/Rectangle.h"
 using std::cout, std::cin;
 
 int main() {
