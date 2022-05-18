@@ -1,8 +1,0 @@
-//
-// Created by michael on 5/10/22.
-//
-
-#ifndef GEOMETRICSHAPES_CIRCLE_H
-#define GEOMETRICSHAPES_CIRCLE_H
-
-#endif //GEOMETRICSHAPES_CIRCLE_H
