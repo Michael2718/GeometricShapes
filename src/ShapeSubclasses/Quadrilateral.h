@@ -2,9 +2,8 @@
 #define GEOMETRICSHAPES_QUADRILATERAL_H
 
 #include "../Shape.h"
+#include "../Point.h"
 #include <vector>
-
-using std::vector;
 
 class Quadrilateral : public Shape {
 private:
