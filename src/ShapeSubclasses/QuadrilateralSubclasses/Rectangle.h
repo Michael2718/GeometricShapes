@@ -1,9 +1,9 @@
 #ifndef GEOMETRICSHAPES_RECTANGLE_H
 #define GEOMETRICSHAPES_RECTANGLE_H
 
-#include "../../Shape.h"
+#include "../Quadrilateral.h"
 
-class Rectangle : public Shape {
+class Rectangle : public Quadrilateral {
 private:
     int c;
 public:
