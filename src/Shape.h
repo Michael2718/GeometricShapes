@@ -2,7 +2,6 @@
 #define GEOMETRICSHAPES_SHAPE_H
 
 #include "Point.h"
-#include <stdexcept>
 
 class Shape {
 private:
