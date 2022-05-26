@@ -3,6 +3,7 @@
 
 #include "../Shape.h"
 #include "../Point.h"
+
 #include <vector>
 
 class Quadrilateral : public Shape {
