@@ -10,7 +10,7 @@ private:
     double x, y, rotation_angle; // (x, y) specifies the top-left point of the Rectangle circumscribed around Shape
 public:
     Shape();
-    Shape(unsigned int id, double x, double y, double rotation_angle);
+    Shape(unsigned int id, double x, double y);
 
     unsigned int getId() const {return id;}
     double getX() const {return x;}

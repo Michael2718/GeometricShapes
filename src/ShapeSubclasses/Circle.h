@@ -4,7 +4,8 @@
 #include "Ellipse.h"
 
 class Circle : public Ellipse {
-
+public:
+    Circle(Point center, double radius);
 };
 
 
