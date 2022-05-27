@@ -15,8 +15,10 @@ find_package(Qt6 COMPONENTS
         REQUIRED)
 
 add_executable(GeometricShapes src/main.cpp)
-add_executable(Ellipse_Circle src/ShapeSubclasses/AbstractEllipseSubclasses/Ellipse.h src/ShapeSubclasses/AbstractEllipseSubclasses/Circle.h
-        src/ShapeSubclasses/AbstractEllipseSubclasses/Ellipse.cpp src/ShapeSubclasses/AbstractEllipseSubclasses/Circle.cpp src/main_CLI.cpp)
+add_executable(Ellipse_Circle
+        src/ShapeSubclasses/AbstractEllipseSubclasses/Ellipse.h src/ShapeSubclasses/AbstractEllipseSubclasses/Circle.h
+        src/ShapeSubclasses/AbstractEllipseSubclasses/Ellipse.cpp src/ShapeSubclasses/AbstractEllipseSubclasses/Circle.cpp
+        src/ShapeSubclasses/AbstractEllipse.h src/ShapeSubclasses/AbstractEllipse.cpp src/main_CLI.cpp)
 
 target_link_libraries(GeometricShapes
         Qt::Core

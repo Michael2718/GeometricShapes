@@ -1,11 +1,15 @@
 #ifndef GEOMETRICSHAPES_CIRCLE_H
 #define GEOMETRICSHAPES_CIRCLE_H
 
-#include "Ellipse.h"
+#include "../AbstractEllipse.h"
 
-class Circle : public Ellipse {
+class Circle : public AbstractEllipse {
+private:
+    double r;
 public:
-    Circle(Point center, double radius);
+    Circle(Point center, double r);
+    double getRadius() const;
+    double Area() const override;
 };
 
 

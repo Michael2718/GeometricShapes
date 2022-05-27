@@ -1,17 +1,17 @@
 #ifndef GEOMETRICSHAPES_ELLIPSE_H
 #define GEOMETRICSHAPES_ELLIPSE_H
 
-#include "../../Shape.h"
+//#include "../../Shape.h"
+#include "../AbstractEllipse.h"
 
-class Ellipse {
+class Ellipse : public AbstractEllipse {
 private:
-    Point center;
     double a, b;
 public:
     Ellipse(Point center, double a, double b);
-    double getA() const {return a;}
-    double getB() const {return b;}
-    virtual double Area() const {return 3.14 * a * b;}
+    double getA() const;
+    double getB() const;
+    double Area() const override;
 };
 
 
