@@ -1,13 +1,16 @@
 #ifndef GEOMETRICSHAPES_ABSTRACTELLIPSE_H
 #define GEOMETRICSHAPES_ABSTRACTELLIPSE_H
 
+#include "../AbstractShape.h"
 #include "../Point.h"
 
-class AbstractEllipse {
+class AbstractEllipse : public AbstractShape {
 private:
     Point center;
 public:
-    explicit AbstractEllipse(Point center);
+    explicit AbstractEllipse(unsigned int id, Point center);
+
+    virtual double Perimeter() const = 0;
     virtual double Area() const = 0;
 };
 

@@ -1,3 +1,4 @@
 #include "AbstractEllipse.h"
 
-AbstractEllipse::AbstractEllipse(Point center) : center(center) {}
+AbstractEllipse::AbstractEllipse(unsigned int id, Point center)
+    : AbstractShape(id), center(center) {}

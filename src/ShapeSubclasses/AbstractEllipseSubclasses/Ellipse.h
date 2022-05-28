@@ -8,9 +8,12 @@ class Ellipse : public AbstractEllipse {
 private:
     double a, b;
 public:
-    Ellipse(Point center, double a, double b);
+    Ellipse(unsigned int id, Point center, double a, double b);
+
     double getA() const;
     double getB() const;
+
+    double Perimeter() const override;
     double Area() const override;
 };
 

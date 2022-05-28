@@ -1,17 +1,17 @@
 #ifndef GEOMETRICSHAPES_ABSTRACTSHAPE_H
 #define GEOMETRICSHAPES_ABSTRACTSHAPE_H
 
-class Shape {
+class AbstractShape {
 private:
     unsigned int id;
 public:
-    Shape();
-    Shape(unsigned int id);
+    AbstractShape();
+    explicit AbstractShape(unsigned int id);
 
     unsigned int getId() const {return id;}
 
-    virtual double Perimeter() = 0;
-    virtual double Area() = 0;
+    virtual double Perimeter() const = 0;
+    virtual double Area() const = 0;
 };
 
 #endif //GEOMETRICSHAPES_ABSTRACTSHAPE_H

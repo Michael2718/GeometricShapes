@@ -7,8 +7,11 @@ class Circle : public AbstractEllipse {
 private:
     double r;
 public:
-    Circle(Point center, double r);
+    Circle(unsigned int id, Point center, double r);
+
     double getRadius() const;
+
+    double Perimeter() const override;
     double Area() const override;
 };
 
