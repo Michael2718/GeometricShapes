@@ -8,10 +8,10 @@ class AbstractEllipse : public AbstractShape {
 private:
     Point center;
 public:
-    explicit AbstractEllipse(unsigned int id, Point center);
+    AbstractEllipse(unsigned int id, Point center);
 
-    virtual double Perimeter() const = 0;
-    virtual double Area() const = 0;
+    double Perimeter() const override = 0;
+    double Area() const override = 0;
 };
 
 

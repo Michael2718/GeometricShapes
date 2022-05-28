@@ -9,7 +9,7 @@ private:
 public:
     Circle(unsigned int id, Point center, double r);
 
-    double getRadius() const;
+    double GetRadius() const;
 
     double Perimeter() const override;
     double Area() const override;

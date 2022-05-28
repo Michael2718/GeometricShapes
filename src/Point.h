@@ -9,8 +9,8 @@ public:
     Point() : x(0), y(0) {}
     Point(double x, double y) : x(x), y(y) {}
 
-    double getX() const {return x;}
-    double getY() const {return y;}
+    double GetX() const {return x;}
+    double GetY() const {return y;}
 };
 
 

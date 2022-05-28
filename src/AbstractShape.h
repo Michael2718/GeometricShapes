@@ -8,7 +8,7 @@ public:
     AbstractShape();
     explicit AbstractShape(unsigned int id);
 
-    unsigned int getId() const {return id;}
+    unsigned int GetId() const {return id;}
 
     virtual double Perimeter() const = 0;
     virtual double Area() const = 0;

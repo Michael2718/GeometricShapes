@@ -10,8 +10,8 @@ private:
 public:
     Ellipse(unsigned int id, Point center, double a, double b);
 
-    double getA() const;
-    double getB() const;
+    double GetA() const;
+    double GetB() const;
 
     double Perimeter() const override;
     double Area() const override;
