@@ -1,7 +1,7 @@
 #ifndef GEOMETRICSHAPES_POLYGON_H
 #define GEOMETRICSHAPES_POLYGON_H
 
-#include "../Shape.h"
+#include "../AbstractShape.h"
 
 class Polygon : public Shape {
 
