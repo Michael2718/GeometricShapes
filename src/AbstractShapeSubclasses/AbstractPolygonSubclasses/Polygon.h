@@ -9,7 +9,7 @@ class Polygon : public AbstractPolygon {
 private:
     std::vector<Point> vertices;
 public:
-    Polygon(unsigned int id, const std::vector<Point>& vertices);
+    Polygon(unsigned int id, const std::vector<Point>& points);
 
     std::vector<Point> GetVertices() const;
 
