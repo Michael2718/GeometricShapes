@@ -1,7 +1,7 @@
 #include <iostream>
 //#include "Shape.h"
-#include "ShapeSubclasses/AbstractEllipseSubclasses/Ellipse.h"
-#include "ShapeSubclasses/AbstractEllipseSubclasses/Circle.h"
+#include "AbstractShapeSubclasses/AbstractEllipseSubclasses/Ellipse.h"
+#include "AbstractShapeSubclasses/AbstractEllipseSubclasses/Circle.h"
 
 using std::cout, std::cin;
 
