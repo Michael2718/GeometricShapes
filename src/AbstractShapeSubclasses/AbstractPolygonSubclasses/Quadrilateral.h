@@ -1,7 +1,7 @@
 #ifndef GEOMETRICSHAPES_QUADRILATERAL_H
 #define GEOMETRICSHAPES_QUADRILATERAL_H
 
-#include "../Polygon.h"
+#include "Polygon.h"
 
 #include <vector>
 
