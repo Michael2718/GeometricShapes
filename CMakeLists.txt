@@ -24,10 +24,13 @@ add_executable(GeometricShapes src/main.cpp)
 
 add_executable(SandBox
         src/AbstractShape.h
+        src/AbstractShape.cpp
         src/AbstractShapeSubclasses/AbstractPolygon.h
         src/AbstractShapeSubclasses/AbstractPolygon.cpp
         src/AbstractShapeSubclasses/AbstractPolygonSubclasses/Polygon.h
         src/AbstractShapeSubclasses/AbstractPolygonSubclasses/Polygon.cpp
+        src/Point.h
+        src/Point.cpp
         src/SandBox.cpp)
 
 target_link_libraries(GeometricShapes

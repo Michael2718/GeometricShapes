@@ -11,6 +11,8 @@ private:
 public:
     Polygon(unsigned int id, const std::vector<Point>& vertices);
 
+    std::vector<Point> GetVertices() const;
+
     double Perimeter() const override;
     double Area() const override;
 };
