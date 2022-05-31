@@ -10,6 +10,9 @@ private:
     std::vector<Point> vertices;
 public:
     Polygon(unsigned int id, const std::vector<Point>& vertices);
+
+    double Perimeter() const override;
+    double Area() const override;
 };
 
 

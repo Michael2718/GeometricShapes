@@ -23,6 +23,9 @@ add_executable(GeometricShapes src/main.cpp)
 #        src/main_CLI.cpp)
 
 add_executable(SandBox
+        src/AbstractShape.h
+        src/AbstractShapeSubclasses/AbstractPolygon.h
+        src/AbstractShapeSubclasses/AbstractPolygon.cpp
         src/AbstractShapeSubclasses/AbstractPolygonSubclasses/Polygon.h
         src/AbstractShapeSubclasses/AbstractPolygonSubclasses/Polygon.cpp
         src/SandBox.cpp)
