@@ -10,8 +10,8 @@ public:
     Point();
     Point(double x, double y);
 
-    double GetX() const;
-    double GetY() const;
+    double X() const {return x;}
+    double Y() const {return y;}
 
     friend std::ostream& operator<<(std::ostream& os, const Point& point);
 };
