@@ -1,7 +1,6 @@
 #ifndef GEOMETRICSHAPES_ELLIPSE_H
 #define GEOMETRICSHAPES_ELLIPSE_H
 
-//#include "../../Shape.h"
 #include "../AbstractEllipse.h"
 
 class Ellipse : public AbstractEllipse {
@@ -12,6 +11,9 @@ public:
 
     double GetA() const {return a;}
     double GetB() const {return b;}
+
+    void SetA(double new_a);
+    void SetB(double new_b);
 
     double Perimeter() const override;
     double Area() const override;

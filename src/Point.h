@@ -12,6 +12,7 @@ public:
 
     double GetX() const;
     double GetY() const;
+
     friend std::ostream& operator<<(std::ostream& os, const Point& point);
 };
 
