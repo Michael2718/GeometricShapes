@@ -37,6 +37,8 @@ add_executable(SandBox
         src/AbstractShapeSubclasses/AbstractEllipseSubclasses/Ellipse.cpp
         src/AbstractShapeSubclasses/AbstractEllipseSubclasses/Circle.h
         src/AbstractShapeSubclasses/AbstractEllipseSubclasses/Circle.cpp
+        src/AbstractShapeSubclasses/AbstractPolygonSubclasses/Triangle.h
+        src/AbstractShapeSubclasses/AbstractPolygonSubclasses/Triangle.cpp
         src/SandBox.cpp)
 
 target_link_libraries(GeometricShapes

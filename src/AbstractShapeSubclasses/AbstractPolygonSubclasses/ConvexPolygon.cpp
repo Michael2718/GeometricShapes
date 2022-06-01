@@ -10,4 +10,5 @@ ConvexPolygon::ConvexPolygon(unsigned int id, const std::vector<Point>& points)
 }
 
 double ConvexPolygon::Perimeter() const {return 1;} // TODO : Implement Perimeter()
+
 double ConvexPolygon::Area() const {return 2;} // TODO: Implement Area()
