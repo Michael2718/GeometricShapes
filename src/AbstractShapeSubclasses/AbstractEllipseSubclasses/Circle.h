@@ -11,7 +11,7 @@ public:
 
     double GetRadius() const {return r;}
 
-    void SetR(double new_r);
+    void SetRadius(double new_radius);
 
     double Perimeter() const override;
     double Area() const override;
