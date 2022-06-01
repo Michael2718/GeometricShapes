@@ -13,7 +13,7 @@ public:
     Triangle(unsigned int id, Point p1, Point p2, Point p3);
 
     std::vector<Point> GetPoints() const {return {p1, p2, p3};}
-
+    // TODO: Implement Setters, Move methods
     double Perimeter() const override;
     double Area() const override;
 };

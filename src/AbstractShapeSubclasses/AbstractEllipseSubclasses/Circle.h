@@ -12,7 +12,7 @@ public:
     double GetRadius() const {return r;}
 
     void SetRadius(double new_radius);
-
+    // TODO: Implement Move method
     double Perimeter() const override;
     double Area() const override;
 };
