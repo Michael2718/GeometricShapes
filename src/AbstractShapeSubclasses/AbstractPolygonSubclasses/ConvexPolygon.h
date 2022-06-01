@@ -1,15 +1,15 @@
-#ifndef GEOMETRICSHAPES_POLYGON_H
-#define GEOMETRICSHAPES_POLYGON_H
+#ifndef GEOMETRICSHAPES_CONVEXPOLYGON_H
+#define GEOMETRICSHAPES_CONVEXPOLYGON_H
 
 #include "../AbstractPolygon.h"
 #include "../../Point.h"
 #include <vector>
 
-class Polygon : public AbstractPolygon {
+class ConvexPolygon : public AbstractPolygon {
 private:
     std::vector<Point> vertices;
 public:
-    Polygon(unsigned int id, const std::vector<Point>& points);
+    ConvexPolygon(unsigned int id, const std::vector<Point>& points);
 
     std::vector<Point> GetVertices() const {return vertices;}
 
@@ -18,4 +18,4 @@ public:
 };
 
 
-#endif //GEOMETRICSHAPES_POLYGON_H
+#endif //GEOMETRICSHAPES_CONVEXPOLYGON_H

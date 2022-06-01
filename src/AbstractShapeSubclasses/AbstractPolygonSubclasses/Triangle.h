@@ -1,7 +1,7 @@
 #ifndef GEOMETRICSHAPES_TRIANGLE_H
 #define GEOMETRICSHAPES_TRIANGLE_H
 
-#include "Polygon.h"
+#include "ConvexPolygon.h"
 
 class Triangle : public Polygon {
 

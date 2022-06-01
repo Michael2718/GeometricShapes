@@ -27,8 +27,8 @@ add_executable(SandBox
         src/AbstractShape.cpp
         src/AbstractShapeSubclasses/AbstractPolygon.h
         src/AbstractShapeSubclasses/AbstractPolygon.cpp
-        src/AbstractShapeSubclasses/AbstractPolygonSubclasses/Polygon.h
-        src/AbstractShapeSubclasses/AbstractPolygonSubclasses/Polygon.cpp
+        src/AbstractShapeSubclasses/AbstractPolygonSubclasses/ConvexPolygon.h
+        src/AbstractShapeSubclasses/AbstractPolygonSubclasses/ConvexPolygon.cpp
         src/Point.h
         src/Point.cpp
         src/AbstractShapeSubclasses/AbstractEllipse.h
