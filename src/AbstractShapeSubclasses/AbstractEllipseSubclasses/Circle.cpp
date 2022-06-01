@@ -5,7 +5,9 @@
 using std::invalid_argument;
 
 Circle::Circle(unsigned int id, Point center, double r)
-    : AbstractEllipse(id, center), r(r) {}
+    : AbstractEllipse(id, center), r(r) {
+    if (r <= 0) throw invalid_argument("Invalid radius.");
+}
 
 void Circle::SetRadius(double new_radius) {
     if (new_radius <= 0) throw invalid_argument("Invalid value of new radius.");

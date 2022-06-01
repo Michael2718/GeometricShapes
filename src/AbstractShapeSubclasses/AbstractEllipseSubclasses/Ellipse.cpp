@@ -5,15 +5,17 @@
 using std::invalid_argument;
 
 Ellipse::Ellipse(unsigned int id, Point center, double a, double b)
-    : AbstractEllipse(id, center), a(a), b(b) {}
+    : AbstractEllipse(id, center), a(a), b(b) {
+    if (a <= 0 || b <= 0) throw invalid_argument("Invalid sides.");
+}
 
 void Ellipse::SetA(double new_a) {
-    if (new_a <= 0) throw invalid_argument("Invalid value of new 'a' side.");
+    if (new_a <= 0) throw invalid_argument("Invalid new 'a' side.");
     a = new_a;
 }
 
 void Ellipse::SetB(double new_b) {
-    if (new_b <= 0) throw invalid_argument("Invalid value of new 'b' side.");
+    if (new_b <= 0) throw invalid_argument("Invalid new 'b' side.");
     a = new_b;
 }
 
