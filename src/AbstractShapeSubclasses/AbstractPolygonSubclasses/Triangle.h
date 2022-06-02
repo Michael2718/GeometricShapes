@@ -8,7 +8,6 @@
 class Triangle : public AbstractPolygon {
 private:
     Point p1, p2, p3;
-    //std::vector<Point> points;
 public:
     Triangle(unsigned int id, std::vector<Point> points);
     Triangle(unsigned int id, Point p1, Point p2, Point p3);
