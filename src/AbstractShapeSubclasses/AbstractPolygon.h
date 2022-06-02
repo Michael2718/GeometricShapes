@@ -10,6 +10,9 @@ public:
     AbstractPolygon(unsigned int id, unsigned int vertex_count);
 
     unsigned int GetVertexCount() const;
+
+    double Perimeter() const override = 0;
+    double Area() const override = 0;
 };
 
 
