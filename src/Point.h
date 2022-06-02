@@ -7,13 +7,14 @@ class Point {
 private:
     double x, y;
 public:
-    Point();
-    Point(double x, double y);
+    Point() : x(0), y(0) {}
+    Point(double x, double y) : x(x), y(y) {}
 
     double X() const {return x;}
     double Y() const {return y;}
 
     friend std::ostream& operator<<(std::ostream& os, const Point& point);
+    bool operator==(const Point& point) const;
 };
 
 #endif //GEOMETRICSHAPES_POINT_H
