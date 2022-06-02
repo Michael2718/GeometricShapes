@@ -4,9 +4,16 @@
 
 using std::invalid_argument;
 
+Triangle::Triangle(unsigned int id, std::vector<Point> points)
+    : AbstractPolygon(id, 3), p1(points[0]), p2(points[1]), p3(points[2]) {
+    if (this->Area() == 0) throw invalid_argument("Invalid points. Triangle doesn't exist.");
+    if(p1 == p2 || p1 == p2 || p1 == p3 || p2 == p3) throw invalid_argument("Invalid points. Triangle doesn't exist.");
+}
+
 Triangle::Triangle(unsigned int id, Point p1, Point p2, Point p3)
     : AbstractPolygon(id, 3), p1(p1), p2(p2), p3(p3) {
     if (this->Area() == 0) throw invalid_argument("Invalid points. Triangle doesn't exist.");
+    if(p1 == p2 || p1 == p2 || p1 == p3 || p2 == p3) throw invalid_argument("Invalid points. Triangle doesn't exist.");
 }
 
 void Triangle::SetPoints(std::vector<Point> points) {
