@@ -1,7 +1,7 @@
 #ifndef GEOMETRICSHAPES_RHOMBUS_H
 #define GEOMETRICSHAPES_RHOMBUS_H
 
-#include "../Quadrilateral.h"
+#include "../AbstractQuadrilateral.h"
 
 class Rhombus : public Quadrilateral {
 

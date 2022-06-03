@@ -1,7 +1,7 @@
 #ifndef GEOMETRICSHAPES_RECTANGLE_H
 #define GEOMETRICSHAPES_RECTANGLE_H
 
-#include "../Quadrilateral.h"
+#include "../AbstractQuadrilateral.h"
 
 class Rectangle : public Quadrilateral {
 private:
