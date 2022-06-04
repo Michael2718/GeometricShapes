@@ -7,15 +7,15 @@
 class Rectangle : public AbstractQuadrilateral {
 private:
     Point top_left_corner;
-    double a, b;
+    double width, height;
 public:
-    Rectangle(unsigned int id, Point top_left_corner, int a, int b);
+    Rectangle(unsigned int id, Point top_left_corner, int width, int height);
 
-    double GetA() const {return a;}
-    double GetB() const {return b;}
+    double GetWidth() const {return width;}
+    double GetHeight() const {return height;}
 
-    void SetA(double new_a);
-    void SetB(double new_b);
+    void SetWidth(double new_width);
+    void SetHeight(double new_height);
 
     double Perimeter() const override;
     double Area() const override;
