@@ -16,7 +16,7 @@ void Ellipse::SetA(double new_a) {
 
 void Ellipse::SetB(double new_b) {
     if (new_b <= 0) throw invalid_argument("Invalid new semi-minor axis.");
-    a = new_b;
+    b = new_b;
 }
 
 double Ellipse::Perimeter() const {return 2 * M_PI * sqrt((a*a + b*b)/2.0);}
