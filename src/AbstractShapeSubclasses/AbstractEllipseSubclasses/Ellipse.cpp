@@ -6,16 +6,16 @@ using std::invalid_argument;
 
 Ellipse::Ellipse(unsigned int id, Point center, double a, double b)
     : AbstractEllipse(id, center), a(a), b(b) {
-    if (a <= 0 || b <= 0) throw invalid_argument("Invalid sides.");
+    if (a <= 0 || b <= 0) throw invalid_argument("Invalid semi-axes.");
 }
 
 void Ellipse::SetA(double new_a) {
-    if (new_a <= 0) throw invalid_argument("Invalid new 'a' side.");
+    if (new_a <= 0) throw invalid_argument("Invalid new semi-major axis.");
     a = new_a;
 }
 
 void Ellipse::SetB(double new_b) {
-    if (new_b <= 0) throw invalid_argument("Invalid new 'b' side.");
+    if (new_b <= 0) throw invalid_argument("Invalid new semi-minor axis.");
     a = new_b;
 }
 
