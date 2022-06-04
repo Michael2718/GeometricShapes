@@ -9,8 +9,8 @@ class AbstractQuadrilateral : public AbstractPolygon {
 public:
     explicit AbstractQuadrilateral(unsigned int id);
 
-    virtual double Perimeter() = 0;
-    virtual double Area() = 0;
+    double Perimeter() const override = 0;
+    double Area() const override = 0;
 };
 
 #endif //GEOMETRICSHAPES_ABSTRACTQUADRILATERAL_H
