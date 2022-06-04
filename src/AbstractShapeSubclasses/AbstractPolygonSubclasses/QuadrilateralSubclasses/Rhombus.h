@@ -3,7 +3,7 @@
 
 #include "../AbstractQuadrilateral.h"
 
-class Rhombus : public Quadrilateral {
+class Rhombus : public AbstractQuadrilateral {
 
 };
 

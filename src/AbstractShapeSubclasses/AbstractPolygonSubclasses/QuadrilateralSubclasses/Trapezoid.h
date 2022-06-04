@@ -3,7 +3,7 @@
 
 #include "../AbstractQuadrilateral.h"
 
-class Trapezoid : public Quadrilateral {
+class Trapezoid : public AbstractQuadrilateral {
 
 };
 

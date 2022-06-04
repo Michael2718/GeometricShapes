@@ -7,11 +7,10 @@
 
 class AbstractQuadrilateral : public AbstractPolygon {
 public:
-    AbstractQuadrilateral(unsigned int id);
+    explicit AbstractQuadrilateral(unsigned int id);
 
     virtual double Perimeter() = 0;
     virtual double Area() = 0;
 };
-
 
 #endif //GEOMETRICSHAPES_ABSTRACTQUADRILATERAL_H

@@ -6,7 +6,16 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(HEADERS )
+file(GLOB_RECURSE HEADERS src/AbstractShapeSubclasses/*.h
+                          src/AbstractShape.h
+                          src/ComplexShape.h
+                          src/Point.h)
+
+file(GLOB_RECURSE SOURCES src/AbstractShapeSubclasses/*.cpp
+                          src/AbstractShape.cpp
+                          src/ComplexShape.cpp
+                          src/Point.cpp
+                          src/SandBox.cpp)
 
 find_package(Qt6 COMPONENTS
         Core
@@ -15,35 +24,12 @@ find_package(Qt6 COMPONENTS
         REQUIRED)
 
 add_executable(GeometricShapes src/main.cpp)
-#add_executable(Ellipse_Circle
-#        src/AbstractShapeSubclasses/AbstractEllipseSubclasses/Ellipse.h src/AbstractShapeSubclasses/AbstractEllipseSubclasses/Circle.h
-#        src/AbstractShapeSubclasses/AbstractEllipseSubclasses/Ellipse.cpp src/AbstractShapeSubclasses/AbstractEllipseSubclasses/Circle.cpp
-#        src/AbstractShapeSubclasses/AbstractEllipse.h src/AbstractShapeSubclasses/AbstractEllipse.cpp
-#        src/AbstractShape.h src/AbstractShape.cpp
-#        src/main_CLI.cpp)
 
-add_executable(SandBox
-        src/AbstractShape.h
-        src/AbstractShape.cpp
-        src/AbstractShapeSubclasses/AbstractPolygon.h
-        src/AbstractShapeSubclasses/AbstractPolygon.cpp
-        src/AbstractShapeSubclasses/AbstractPolygonSubclasses/ConvexPolygon.h
-        src/AbstractShapeSubclasses/AbstractPolygonSubclasses/ConvexPolygon.cpp
-        src/Point.h
-        src/Point.cpp
-        src/AbstractShapeSubclasses/AbstractEllipse.h
-        src/AbstractShapeSubclasses/AbstractEllipse.cpp
-        src/AbstractShapeSubclasses/AbstractEllipseSubclasses/Ellipse.h
-        src/AbstractShapeSubclasses/AbstractEllipseSubclasses/Ellipse.cpp
-        src/AbstractShapeSubclasses/AbstractEllipseSubclasses/Circle.h
-        src/AbstractShapeSubclasses/AbstractEllipseSubclasses/Circle.cpp
-        src/AbstractShapeSubclasses/AbstractPolygonSubclasses/Triangle.h
-        src/AbstractShapeSubclasses/AbstractPolygonSubclasses/Triangle.cpp
-        src/SandBox.cpp)
+add_executable(SandBox ${SOURCES} ${HEADERS})
+
 
 target_link_libraries(GeometricShapes
         Qt::Core
         Qt::Gui
         Qt::Widgets
         )
-
