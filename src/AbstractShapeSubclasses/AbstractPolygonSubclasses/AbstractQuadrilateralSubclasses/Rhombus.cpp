@@ -16,7 +16,7 @@ void Rhombus::SetD1(double new_d1) {
 
 void Rhombus::SetD2(double new_d2) {
     if (new_d2 <= 0) throw invalid_argument("Invalid new second diagonal.");
-    d1 = new_d2;
+    d2 = new_d2;
 }
 
 double Rhombus::Perimeter() const {return 2*sqrt(d1*d1 + d2*d2);}
