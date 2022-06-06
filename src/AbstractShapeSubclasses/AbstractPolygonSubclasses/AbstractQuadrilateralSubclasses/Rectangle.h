@@ -6,10 +6,11 @@
 
 class Rectangle : public AbstractQuadrilateral {
 private:
-    Point top_left_corner;
+    Point center;
     double width, height;
 public:
-    Rectangle(unsigned int id, Point top_left_corner, int width, int height);
+    Rectangle(unsigned int id, Point center, double width, double height);
+    Rectangle(unsigned int id, Point p1, Point p2, Point p3, Point p4);
 
     double GetWidth() const {return width;}
     double GetHeight() const {return height;}
