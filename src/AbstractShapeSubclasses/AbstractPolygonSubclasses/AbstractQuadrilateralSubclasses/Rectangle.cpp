@@ -27,14 +27,16 @@ Rectangle::Rectangle(unsigned int id, Point p1, Point p2, Point p3, Point p4)
     if (center.X() - p1.X() <= 0 || center.Y() - p1.Y() >= 0) throw invalid_argument("Invalid points.");
 }
 
-void Rectangle::SetWidth(double new_width) {
-    if (new_width <= 0) throw invalid_argument("Invalid new width.");
-    width = new_width;
-}
-
-void Rectangle::SetHeight(double new_height) {
-    if (new_height <= 0) throw invalid_argument("Invalid new height.");
-    height = new_height;
+void Rectangle::Scale(double k) {
+    if (k <= 0) throw invalid_argument("Invalid scale factor k.");
+    width  *= k;
+    height *= k;
+    vector<Point> new_points;
+    for (auto point: GetPoints()) {
+        new_points.emplace_back(k*point.X()+(1-k)*center.X(),
+                                k*point.Y()+(1-k)*center.Y());
+    }
+    SetPoints(new_points);
 }
 
 double Rectangle::Perimeter() const {return 2*(width+height);}

@@ -15,8 +15,7 @@ public:
     double GetWidth() const {return width;}
     double GetHeight() const {return height;}
 
-    void SetWidth(double new_width);
-    void SetHeight(double new_height);
+    void Scale(double k);
 
     double Perimeter() const override;
     double Area() const override;
