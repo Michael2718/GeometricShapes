@@ -1,7 +1,7 @@
 #include "Rhombus.h"
 #include <stdexcept>
 #include <cmath>
-
+#include <vector>
 using std::invalid_argument;
 
 Rhombus::Rhombus(unsigned int id, Point center, double d1, double d2)
@@ -22,14 +22,16 @@ Rhombus::Rhombus(unsigned int id, Point center, Point p1, Point p2)
     if (p1.Y() < p2.Y()) throw invalid_argument("Invalid points.");
 }
 
-void Rhombus::SetD1(double new_d1) {
-    if (new_d1 <= 0) throw invalid_argument("Invalid new first diagonal.");
-    d1 = new_d1;
-}
-
-void Rhombus::SetD2(double new_d2) {
-    if (new_d2 <= 0) throw invalid_argument("Invalid new second diagonal.");
-    d2 = new_d2;
+void Rhombus::Scale(double k) {
+    if (k <= 0) throw invalid_argument("Invalid scale factor k.");
+    d1 *= k;
+    d2 *= k;
+    std::vector<Point> new_points;
+    for (auto point: GetPoints()) {
+        new_points.emplace_back(k*point.X()+(1-k)*center.X(),
+                                k*point.Y()+(1-k)*center.Y());
+    }
+    SetPoints(new_points);
 }
 
 double Rhombus::Perimeter() const {return 2*sqrt(d1*d1 + d2*d2);}

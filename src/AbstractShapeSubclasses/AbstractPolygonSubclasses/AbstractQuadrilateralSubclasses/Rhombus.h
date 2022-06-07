@@ -15,8 +15,7 @@ public:
     double GetD1() const {return d1;}
     double GetD2() const {return d2;}
 
-    void SetD1(double new_d1);
-    void SetD2(double new_d2);
+    void Scale(double k);
 
     double Perimeter() const override;
     double Area() const override;
