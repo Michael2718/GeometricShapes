@@ -15,6 +15,8 @@ public:
 
     double Perimeter() const override = 0;
     double Area() const override = 0;
+protected:
+    void SetPoints(const std::vector<Point>& new_points);
 };
 
 #endif //GEOMETRICSHAPES_ABSTRACTQUADRILATERAL_H
