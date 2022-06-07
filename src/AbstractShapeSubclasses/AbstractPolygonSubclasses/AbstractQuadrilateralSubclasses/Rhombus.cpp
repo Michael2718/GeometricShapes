@@ -2,7 +2,8 @@
 #include <stdexcept>
 #include <cmath>
 #include <vector>
-using std::invalid_argument;
+
+using std::invalid_argument, std::vector;
 
 Rhombus::Rhombus(unsigned int id, Point center, double d1, double d2)
     : AbstractQuadrilateral(id, Point(), Point(), Point(), Point()), center(center), d1(d1), d2(d2) {
@@ -26,7 +27,7 @@ void Rhombus::Scale(double k) {
     if (k <= 0) throw invalid_argument("Invalid scale factor k.");
     d1 *= k;
     d2 *= k;
-    std::vector<Point> new_points;
+    vector<Point> new_points;
     for (auto point: GetPoints()) {
         new_points.emplace_back(k*point.X()+(1-k)*center.X(),
                                 k*point.Y()+(1-k)*center.Y());
