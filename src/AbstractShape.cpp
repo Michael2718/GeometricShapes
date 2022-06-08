@@ -9,4 +9,3 @@ AbstractShape::AbstractShape(unsigned int id)
     : id(id) {
     if (id < 0) throw invalid_argument("Invalid Shape Id.");
 }
-

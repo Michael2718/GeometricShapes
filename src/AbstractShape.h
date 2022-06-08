@@ -10,6 +10,9 @@ public:
 
     unsigned int GetId() const {return id;}
 
+    virtual void Scale(double k) = 0;
+    virtual void Rotate(double angle) = 0;
+
     virtual double Perimeter() const = 0;
     virtual double Area() const = 0;
 };
