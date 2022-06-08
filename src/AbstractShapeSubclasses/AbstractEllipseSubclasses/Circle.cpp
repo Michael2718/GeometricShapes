@@ -9,10 +9,12 @@ Circle::Circle(unsigned int id, Point center, double r)
     if (r <= 0) throw invalid_argument("Invalid radius.");
 }
 
-void Circle::SetRadius(double new_radius) {
-    if (new_radius <= 0) throw invalid_argument("Invalid value of new radius.");
-    r = new_radius;
+void Circle::Scale(double k) {
+    if (k <= 0) throw invalid_argument("Invalid scale factor k.");
+    r *= k;
 }
+
+void Circle::Rotate(double angle) {}
 
 double Circle::Perimeter() const {return 2 * M_PI * r;}
 

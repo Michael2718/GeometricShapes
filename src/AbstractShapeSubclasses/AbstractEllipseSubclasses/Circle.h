@@ -11,7 +11,9 @@ public:
 
     double GetRadius() const {return r;}
 
-    void SetRadius(double new_radius);
+    void Scale(double k) override;
+    void Rotate(double angle) override;
+
     // TODO: Implement Move method
     double Perimeter() const override;
     double Area() const override;
