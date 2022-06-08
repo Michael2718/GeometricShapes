@@ -7,16 +7,19 @@
 
 class Triangle : public AbstractPolygon {
 private:
-    Point p1, p2, p3;
+    Point p1, p2, p3, center; // Center defined as centroid
 public:
     Triangle(unsigned int id, std::vector<Point> points);
     Triangle(unsigned int id, Point p1, Point p2, Point p3);
 
     std::vector<Point> GetPoints() const {return {p1, p2, p3};}
+    Point GetCenter() const {return center;}
     // TODO: Implement Move methods
 
-    void SetPoints(std::vector<Point> points);
-    void SetPoints(Point new_p1, Point new_p2, Point new_p3);
+    void SetPoints(const std::vector<Point>& new_points);
+
+    void Scale(double k) override;
+    void Rotate(double angle) override;
 
     double Perimeter() const override;
     double Area() const override;
