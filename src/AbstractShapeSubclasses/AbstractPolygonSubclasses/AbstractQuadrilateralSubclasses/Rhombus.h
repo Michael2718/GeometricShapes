@@ -14,8 +14,10 @@ public:
 
     double GetD1() const {return d1;}
     double GetD2() const {return d2;}
+    Point GetCenter() const {return center;}
 
-    void Scale(double k);
+    void Scale(double k) override;
+    void Rotate(double angle) override;
 
     double Perimeter() const override;
     double Area() const override;

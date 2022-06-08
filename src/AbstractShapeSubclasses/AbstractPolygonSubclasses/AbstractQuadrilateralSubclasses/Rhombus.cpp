@@ -35,6 +35,18 @@ void Rhombus::Scale(double k) {
     SetPoints(new_points);
 }
 
+void Rhombus::Rotate(double angle) {
+    vector<Point> new_points;
+    double r_angle = angle * (M_PI / 180.0);
+    double new_x, new_y;
+    for (auto point: GetPoints()) {
+        new_x = center.X() + (point.X()-center.X())*cos(r_angle) + (point.Y()-center.Y())*sin(r_angle);
+        new_y = center.Y() - (point.X()-center.X())*sin(r_angle) + (point.Y()-center.Y())*cos(r_angle);
+        new_points.emplace_back(new_x, new_y);
+    }
+    SetPoints(new_points);
+}
+
 double Rhombus::Perimeter() const {return 2*sqrt(d1*d1 + d2*d2);}
 
 double Rhombus::Area() const {return (d1*d2)/2;}
