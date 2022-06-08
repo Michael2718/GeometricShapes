@@ -12,9 +12,6 @@ public:
     explicit AbstractQuadrilateral(unsigned int id, Point p1, Point p2, Point p3, Point p4);
 
     std::vector<Point> GetPoints() const;
-
-    double Perimeter() const override = 0;
-    double Area() const override = 0;
 protected:
     void SetPoints(const std::vector<Point>& new_points);
 };
