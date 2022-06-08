@@ -12,5 +12,4 @@ public:
     unsigned int GetVertexCount() const;
 };
 
-
 #endif //GEOMETRICSHAPES_ABSTRACTPOLYGON_H
