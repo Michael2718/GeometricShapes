@@ -5,15 +5,17 @@
 
 class Ellipse : public AbstractEllipse {
 private:
-    double a, b; // a - Semi-major axis; b - Semi-minor axis
+    double a, b, rotation_angle; // a - Semi-major axis; b - Semi-minor axis
 public:
     Ellipse(unsigned int id, Point center, double a, double b);
 
     double GetA() const {return a;}
     double GetB() const {return b;}
+    double GetRotationAngle() const {return rotation_angle;}
 
-    void SetA(double new_a);
-    void SetB(double new_b);
+    void Scale(double k) override;
+    void Rotate(double angle) override;
+
     // TODO: Implement Move method
     double Perimeter() const override;
     double Area() const override;
