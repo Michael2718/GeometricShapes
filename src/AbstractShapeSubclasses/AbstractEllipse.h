@@ -10,8 +10,7 @@ private:
 public:
     AbstractEllipse(unsigned int id, Point center);
 
-    double Perimeter() const override = 0;
-    double Area() const override = 0;
+    Point GetCenter() const {return center;}
 };
 
 
