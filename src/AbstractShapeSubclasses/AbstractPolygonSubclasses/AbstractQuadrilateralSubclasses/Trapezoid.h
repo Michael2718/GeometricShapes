@@ -11,10 +11,7 @@ private:
 public:
     Trapezoid(unsigned int id, Point p1, Point p2, Point p3, Point p4);
 
-    double GetA() const {return a;}
-    double GetB() const {return b;}
-    double GetC() const {return c;}
-    double GetD() const {return d;}
+    std::vector<double> GetSides() const {return {a, b, c, d};}
     double GetHeight() const {return h;}
     Point GetCenter() const {return center;}
 
