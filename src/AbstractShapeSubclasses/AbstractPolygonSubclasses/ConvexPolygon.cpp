@@ -22,6 +22,12 @@ bool isConvex(const vector<Point>& points) {
     return !(positive && negative);
 }
 
+double AreaOfTriangle(Point p1, Point p2, Point p3) {
+    return 0.5*std::abs(p1.X()*(p2.Y() - p3.Y()) +
+                           p2.X()*(p3.Y() - p1.Y()) +
+                           p3.X()*(p1.Y() - p2.Y()));
+}
+
 Point CalculateCenter(const vector<Point>& points) {
     unsigned int n = points.size();
     double center_x = 0, center_y = 0;
@@ -37,7 +43,7 @@ ConvexPolygon::ConvexPolygon(unsigned int id, const vector<Point>& points)
             if (points[i] == points[j]) throw invalid_argument("Invalid Points.");
         }
     }
-    if (!isConvex(points)) throw invalid_argument("Invalid Points.");
+    //if (!isConvex(points)) throw invalid_argument("Invalid Points.");
 }
 
 void ConvexPolygon::Scale(double k) {
@@ -62,9 +68,24 @@ void ConvexPolygon::Rotate(double angle) {
     SetPoints(new_vertices);
 }
 
-double ConvexPolygon::Perimeter() const {return 1;} // TODO : Implement Perimeter()
+double ConvexPolygon::Perimeter() const {
+    double perimeter = 0;
+    unsigned int n = GetVertexCount();
+    for(int i = 0; i < n; i++) {
+        perimeter += sqrt(pow(vertices[i%n].X()-vertices[(i+1)%n].X(),2) +
+                             pow(vertices[i%n].Y()-vertices[(i+1)%n].Y(),2));
+    }
+    return perimeter;
+}
 
-double ConvexPolygon::Area() const {return 2;} // TODO: Implement Area()
+double ConvexPolygon::Area() const {
+    double area = 0;
+    unsigned int n = GetVertexCount();
+    for(int i = 0; i < n; i++) {
+        area += AreaOfTriangle(vertices[i%n], vertices[(i+1)%n], center);
+    }
+    return area;
+}
 
 void ConvexPolygon::SetPoints(const std::vector<Point> &new_vertices) {
     vertices = new_vertices;
