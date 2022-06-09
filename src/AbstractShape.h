@@ -12,7 +12,7 @@ public:
 
     virtual void Scale(double k) = 0;
     virtual void Rotate(double angle) = 0;
-    virtual void Translate(double x, double y) = 0;
+    virtual void Translate(double dx, double dy) = 0;
 
     virtual double Perimeter() const = 0;
     virtual double Area() const = 0;
