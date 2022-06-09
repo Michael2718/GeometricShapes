@@ -72,6 +72,11 @@ void SimplePolygon::Rotate(double angle) {
     SetVertices(new_vertices);
 }
 
+void SimplePolygon::Translate(double dx, double dy) {
+    for (auto vertex: vertices) vertex.Translate(dx, dy);
+    center.Translate(dx, dy);
+}
+
 double SimplePolygon::Perimeter() const {
     double perimeter = 0;
     unsigned int n = GetVertexCount();
