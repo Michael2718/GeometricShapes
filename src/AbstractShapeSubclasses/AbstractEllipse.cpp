@@ -8,5 +8,5 @@ void AbstractEllipse::Rotate(double angle) {
 }
 
 void AbstractEllipse::Translate(double x, double y) {
-    center = {center.X()+x, center.Y()+y};
+    center.Translate(x, y);
 }
