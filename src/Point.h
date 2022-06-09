@@ -13,6 +13,8 @@ public:
     double X() const {return x;}
     double Y() const {return y;}
 
+    void Translate(double dx, double dy) {x += dx; y += dy;}
+
     friend std::ostream& operator<<(std::ostream& os, const Point& point);
     bool operator==(const Point& point) const;
 };
