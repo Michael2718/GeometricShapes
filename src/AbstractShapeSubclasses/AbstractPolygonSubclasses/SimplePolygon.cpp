@@ -16,6 +16,27 @@ Point CalculateCenter(const vector<Point>& points) {
     for (auto point: points) {center_x += point.X(); center_y += point.Y();}
     return {center_x/n, center_y/n};
 }
+
+bool ccw(Point a, Point b, Point c) {
+    return (b.X() - a.X()) * (c.Y() - a.Y()) > (c.X() - a.X()) * (b.Y() - a.Y());
+}
+
+bool isSegmentsIntersect(Point a1, Point a2, Point b1, Point b2) {
+    return ccw(a1, b1, b2) != ccw(a2, b1, b2) &&
+           ccw(a1, a2, b1) != ccw(a1, a2, b2);
+}
+
+bool isPolygonSelfIntersecting(const std::vector<Point>& points) {
+    unsigned int n = points.size();
+    for (int i = 0; i < n-2; i++) {
+        for (int j = i+2; j < n; j++) {
+            if(isSegmentsIntersect(points[i], points[i+1],
+                                  points[j], points[(j+1)%n])) return true;
+        }
+    }
+    return false;
+}
+
 SimplePolygon::SimplePolygon(unsigned int id, const vector<Point>& points)
     : AbstractPolygon(id, points.size()), vertices(points),
     center(CalculateCenter(points)) {
@@ -25,6 +46,7 @@ SimplePolygon::SimplePolygon(unsigned int id, const vector<Point>& points)
             if (points[i] == points[j]) throw invalid_argument("Invalid Points.");
         }
     }
+    if (isPolygonSelfIntersecting(points)) throw invalid_argument("Invalid Points.");
 }
 
 void SimplePolygon::Scale(double k) {
