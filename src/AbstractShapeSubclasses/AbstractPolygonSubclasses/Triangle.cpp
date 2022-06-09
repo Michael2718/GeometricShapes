@@ -55,7 +55,7 @@ double Triangle::Perimeter() const {
 }
 
 double Triangle::Area() const {
-    return 0.5*(p1.X()*std::abs(p2.Y() - p3.Y()) +
-                p2.X()*std::abs(p3.Y() - p1.Y()) +
-                p3.X()*std::abs(p1.Y() - p2.Y()));
+    return 0.5*std::abs(p1.X()*(p2.Y() - p3.Y()) +
+                           p2.X()*(p3.Y() - p1.Y()) +
+                           p3.X()*(p1.Y() - p2.Y()));
 }
