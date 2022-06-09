@@ -21,7 +21,7 @@ public:
     double Perimeter() const override;
     double Area() const override;
 protected:
-    void SetPoints(const std::vector<Point>& new_vertices);
+    void SetVertices(const std::vector<Point>& new_vertices);
 };
 
 

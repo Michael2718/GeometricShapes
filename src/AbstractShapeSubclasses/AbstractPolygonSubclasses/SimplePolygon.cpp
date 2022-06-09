@@ -22,16 +22,17 @@ bool ccw(Point a, Point b, Point c) {
 }
 
 bool isSegmentsIntersect(Point a1, Point a2, Point b1, Point b2) {
+    if (a2 == b1 || a1 == b2) return false;
     return ccw(a1, b1, b2) != ccw(a2, b1, b2) &&
            ccw(a1, a2, b1) != ccw(a1, a2, b2);
 }
 
 bool isPolygonSelfIntersecting(const std::vector<Point>& points) {
     unsigned int n = points.size();
-    for (int i = 0; i < n-2; i++) {
-        for (int j = i+2; j < n; j++) {
+    for (int i = 0; i < n-1; i++) {
+        for (int j = i+1; j < n; j++) {
             if(isSegmentsIntersect(points[i], points[i+1],
-                                  points[j], points[(j+1)%n])) return true;
+                                   points[j], points[(j+1)%n])) return true;
         }
     }
     return false;
@@ -56,7 +57,7 @@ void SimplePolygon::Scale(double k) {
         new_vertices.emplace_back(k*point.X()+(1-k)*center.X(),
                                 k*point.Y()+(1-k)*center.Y());
     }
-    SetPoints(new_vertices);
+    SetVertices(new_vertices);
 }
 
 void SimplePolygon::Rotate(double angle) {
@@ -68,7 +69,7 @@ void SimplePolygon::Rotate(double angle) {
         new_y = center.Y() - (point.X()-center.X())*sin(r_angle) + (point.Y()-center.Y())*cos(r_angle);
         new_vertices.emplace_back(new_x, new_y);
     }
-    SetPoints(new_vertices);
+    SetVertices(new_vertices);
 }
 
 double SimplePolygon::Perimeter() const {
@@ -85,11 +86,12 @@ double SimplePolygon::Area() const {
     double area = 0;
     unsigned int n = GetVertexCount();
     for(int i = 0; i < n; i++) {
-        area += AreaOfTriangle(vertices[i%n], vertices[(i+1)%n], center);
+        area += vertices[i].X()*vertices[(i+1)%n].Y();
+        area -= vertices[(i+1)%n].X()*vertices[i].Y();
     }
-    return area;
+    return std::abs(area/2);
 }
 
-void SimplePolygon::SetPoints(const std::vector<Point> &new_vertices) {
+void SimplePolygon::SetVertices(const std::vector<Point> &new_vertices) {
     vertices = new_vertices;
 }
