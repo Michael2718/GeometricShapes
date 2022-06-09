@@ -6,7 +6,6 @@
 
 class Rectangle : public AbstractQuadrilateral {
 private:
-    Point center;
     double width, height;
 public:
     Rectangle(unsigned int id, Point center, double width, double height);

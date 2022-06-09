@@ -47,6 +47,13 @@ void Triangle::Rotate(double angle) {
     SetPoints(new_points);
 }
 
+void Triangle::Translate(double dx, double dy) {
+    center.Translate(dx, dy);
+    p1.Translate(dx, dy);
+    p2.Translate(dx, dy);
+    p3.Translate(dx, dy);
+}
+
 double Triangle::Perimeter() const {
     double a = sqrt(pow(p2.X() - p1.X(), 2) + pow(p2.Y() - p1.Y(), 2));
     double b = sqrt(pow(p3.X() - p2.X(), 2) + pow(p3.Y() - p2.Y(), 2));

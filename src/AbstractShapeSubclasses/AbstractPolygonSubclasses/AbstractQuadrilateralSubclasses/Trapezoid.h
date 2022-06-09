@@ -6,14 +6,12 @@
 
 class Trapezoid : public AbstractQuadrilateral {
 private:
-    Point center; // Center is located at the middle of midline.
     double a, b, c, d, h; // 'a' is top side parallel to bottom 'b' side.
 public:
     Trapezoid(unsigned int id, Point p1, Point p2, Point p3, Point p4);
 
     std::vector<double> GetSides() const {return {a, b, c, d};}
     double GetHeight() const {return h;}
-    Point GetCenter() const {return center;}
 
     void Scale(double k) override;
     void Rotate(double angle) override;

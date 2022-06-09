@@ -4,15 +4,23 @@
 
 using std::invalid_argument, std::vector;
 
-AbstractQuadrilateral::AbstractQuadrilateral(unsigned int id, Point p1, Point p2, Point p3, Point p4)
+AbstractQuadrilateral::AbstractQuadrilateral(unsigned int id, Point p1, Point p2, Point p3, Point p4, Point center)
     : AbstractPolygon(id, 4),
-    p1(p1), p2(p2), p3(p3), p4(p4) {
+    p1(p1), p2(p2), p3(p3), p4(p4), center(center) {
     if (p1 == p2 || p1 == p3 || p1 == p4 || p2 == p3 || p2 == p4 || p3 == p4) {
         throw invalid_argument("Invalid Points.");
     }
 }
 
 vector<Point> AbstractQuadrilateral::GetPoints() const {return vector<Point>({p1, p2, p3, p4});}
+
+void AbstractQuadrilateral::Translate(double dx, double dy) {
+    center.Translate(dx, dy);
+    p1.Translate(dx, dy);
+    p2.Translate(dx, dy);
+    p3.Translate(dx, dy);
+    p4.Translate(dx, dy);
+}
 
 void AbstractQuadrilateral::SetPoints(const std::vector<Point> &new_points) {
     if (new_points.size() != 4) throw invalid_argument("Invalid new_points vector size. Should be the size of 4.");

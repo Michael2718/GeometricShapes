@@ -6,7 +6,6 @@
 
 class Rhombus : public AbstractQuadrilateral {
 private:
-    Point center;
     double d1, d2; // d1 - diagonal parallel to OX axis; d2 - diagonal parallel to OY axis.
 public:
     Rhombus(unsigned int id, Point center, double d1, double d2);
@@ -14,7 +13,6 @@ public:
 
     double GetD1() const {return d1;}
     double GetD2() const {return d2;}
-    Point GetCenter() const {return center;}
 
     void Scale(double k) override;
     void Rotate(double angle) override;
