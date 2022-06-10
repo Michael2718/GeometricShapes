@@ -6,16 +6,38 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-file(GLOB_RECURSE HEADERS src/AbstractShapeSubclasses/*.h
-                          src/AbstractShape.h
-                          src/ComplexShape.h
-                          src/Point.h)
+set(SHAPES_HEADERS
+        src/Shapes/
+        src/Shapes/AbstractShape.h
+        src/Shapes/Point.h
+        src/Shapes/ComplexShape.h
+        src/Shapes/AbstractShapeSubclasses/AbstractEllipse.h
+        src/Shapes/AbstractShapeSubclasses/AbstractPolygon.h
+        src/Shapes/AbstractShapeSubclasses/AbstractEllipseSubclasses/Ellipse.h
+        src/Shapes/AbstractShapeSubclasses/AbstractEllipseSubclasses/Circle.h
+        src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateral.h
+        src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/SimplePolygon.h
+        src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/Triangle.h
+        src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/Rectangle.h
+        src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/Rhombus.h
+        src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/Trapezoid.h
+)
 
-file(GLOB_RECURSE SOURCES src/AbstractShapeSubclasses/*.cpp
-                          src/AbstractShape.cpp
-                          src/ComplexShape.cpp
-                          src/Point.cpp
-                          src/SandBox.cpp)
+set(SHAPES_SOURCES
+        src/Shapes/AbstractShape.cpp
+        src/Shapes/Point.cpp
+        src/Shapes/ComplexShape.cpp
+        src/Shapes/AbstractShapeSubclasses/AbstractEllipse.cpp
+        src/Shapes/AbstractShapeSubclasses/AbstractPolygon.cpp
+        src/Shapes/AbstractShapeSubclasses/AbstractEllipseSubclasses/Ellipse.cpp
+        src/Shapes/AbstractShapeSubclasses/AbstractEllipseSubclasses/Circle.cpp
+        src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateral.cpp
+        src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/SimplePolygon.cpp
+        src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/Triangle.cpp
+        src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/Rectangle.cpp
+        src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/Rhombus.cpp
+        src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/Trapezoid.cpp
+        )
 
 find_package(Qt6 COMPONENTS
         Core
@@ -25,11 +47,20 @@ find_package(Qt6 COMPONENTS
 
 add_executable(GeometricShapes src/main.cpp)
 
-add_executable(SandBox ${SOURCES} ${HEADERS})
-
+#add_executable(SandBox ${SOURCES} ${HEADERS})
+add_executable(SandBox ${SHAPES_HEADERS} ${SHAPES_SOURCES} src/SandBox.cpp)
 
 target_link_libraries(GeometricShapes
         Qt::Core
         Qt::Gui
         Qt::Widgets
         )
+
+target_include_directories(SandBox PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/)
+target_include_directories(SandBox PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractEllipseSubclasses/)
+target_include_directories(SandBox PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/)
+target_include_directories(SandBox PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/)

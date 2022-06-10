@@ -2,7 +2,6 @@
 #include <QPushButton>
 #include <QDebug>
 #include <iostream>
-
 using std::cout, std::cin;
 
 int main(int argc, char *argv[]) {
