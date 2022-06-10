@@ -7,6 +7,7 @@ private:
 public:
     AbstractShape();
     explicit AbstractShape(unsigned int id);
+    virtual ~AbstractShape() = default;
 
     unsigned int GetId() const {return id;}
 
