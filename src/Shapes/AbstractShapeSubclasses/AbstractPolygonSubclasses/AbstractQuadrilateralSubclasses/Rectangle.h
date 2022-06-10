@@ -1,8 +1,8 @@
 #ifndef GEOMETRICSHAPES_RECTANGLE_H
 #define GEOMETRICSHAPES_RECTANGLE_H
 
-#include "../AbstractQuadrilateral.h"
-#include "../../../Point.h"
+#include "AbstractQuadrilateral.h"
+#include "Point.h"
 
 class Rectangle : public AbstractQuadrilateral {
 private:

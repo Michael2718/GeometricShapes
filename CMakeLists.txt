@@ -59,6 +59,8 @@ target_link_libraries(GeometricShapes
 target_include_directories(SandBox PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/)
 target_include_directories(SandBox PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses)
+target_include_directories(SandBox PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractEllipseSubclasses/)
 target_include_directories(SandBox PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/)

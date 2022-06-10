@@ -1,7 +1,7 @@
 #ifndef GEOMETRICSHAPES_ABSTRACTPOLYGON_H
 #define GEOMETRICSHAPES_ABSTRACTPOLYGON_H
 
-#include "../AbstractShape.h"
+#include "AbstractShape.h"
 
 class AbstractPolygon : public AbstractShape {
 private:

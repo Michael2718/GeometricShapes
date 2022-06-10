@@ -1,8 +1,8 @@
 #ifndef GEOMETRICSHAPES_TRAPEZOID_H
 #define GEOMETRICSHAPES_TRAPEZOID_H
 
-#include "../AbstractQuadrilateral.h"
-#include "../../../Point.h"
+#include "AbstractQuadrilateral.h"
+#include "Point.h"
 
 class Trapezoid : public AbstractQuadrilateral {
 private:

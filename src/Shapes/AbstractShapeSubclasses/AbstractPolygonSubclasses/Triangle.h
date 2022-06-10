@@ -1,8 +1,8 @@
 #ifndef GEOMETRICSHAPES_TRIANGLE_H
 #define GEOMETRICSHAPES_TRIANGLE_H
 
-#include "../AbstractPolygon.h"
-#include "../../Point.h"
+#include "AbstractPolygon.h"
+#include "Point.h"
 #include <vector>
 
 class Triangle : public AbstractPolygon {

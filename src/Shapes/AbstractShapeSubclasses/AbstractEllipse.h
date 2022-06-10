@@ -1,8 +1,8 @@
 #ifndef GEOMETRICSHAPES_ABSTRACTELLIPSE_H
 #define GEOMETRICSHAPES_ABSTRACTELLIPSE_H
 
-#include "../AbstractShape.h"
-#include "../Point.h"
+#include "AbstractShape.h"
+#include "Point.h"
 
 class AbstractEllipse : public AbstractShape {
 private:

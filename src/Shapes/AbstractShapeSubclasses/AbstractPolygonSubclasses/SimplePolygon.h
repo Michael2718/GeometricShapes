@@ -1,8 +1,8 @@
 #ifndef GEOMETRICSHAPES_SIMPLEPOLYGON_H
 #define GEOMETRICSHAPES_SIMPLEPOLYGON_H
 
-#include "../AbstractPolygon.h"
-#include "../../Point.h"
+#include "AbstractPolygon.h"
+#include "Point.h"
 #include <vector>
 
 class SimplePolygon : public AbstractPolygon {
