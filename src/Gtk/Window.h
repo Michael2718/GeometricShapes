@@ -6,6 +6,7 @@
 #include <gtkmm-4.0/gtkmm/frame.h>
 #include <gtkmm-4.0/gtkmm/box.h>
 #include "DrawingArea.h"
+#include "Notebook.h"
 
 class Window : public Gtk::Window {
 public:
@@ -13,7 +14,7 @@ public:
     ~Window() override = default;
 protected:
     DrawingArea drawing_area;
-    Gtk::Frame control_frame;
+    Notebook notebook;
     Gtk::Box box;
 };
 

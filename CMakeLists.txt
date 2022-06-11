@@ -44,13 +44,26 @@ set(SHAPES_SOURCES
 
 set(GTK_HEADERS
         src/Gtk/DrawingArea.h
-        src/Gtk/Window.h)
+        src/Gtk/Window.h
+        src/Gtk/Notebook.h)
 
 set(GTK_SOURCES
         src/Gtk/DrawingArea.cpp
-        src/Gtk/Window.cpp)
+        src/Gtk/Window.cpp
+        src/Gtk/Notebook.cpp)
 
-add_executable(SandBox ${SHAPES_HEADERS} ${SHAPES_SOURCES} src/SandBox.cpp)
+add_executable(GeometricShapes_CLI ${SHAPES_HEADERS} ${SHAPES_SOURCES} src/main_CLI.cpp)
+
+target_include_directories(GeometricShapes_CLI PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/)
+target_include_directories(GeometricShapes_CLI PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses)
+target_include_directories(GeometricShapes_CLI PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractEllipseSubclasses/)
+target_include_directories(GeometricShapes_CLI PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/)
+target_include_directories(GeometricShapes_CLI PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/)
 
 add_executable(GeometricShapes
         ${SHAPES_HEADERS}
@@ -72,4 +85,17 @@ target_include_directories(GeometricShapes PUBLIC
 target_include_directories(GeometricShapes PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/)
 target_include_directories(GeometricShapes PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/)
+
+add_executable(SandBox ${SHAPES_HEADERS} ${SHAPES_SOURCES} src/SandBox.cpp)
+
+target_include_directories(SandBox PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/)
+target_include_directories(SandBox PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses)
+target_include_directories(SandBox PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractEllipseSubclasses/)
+target_include_directories(SandBox PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/)
+target_include_directories(SandBox PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/)
