@@ -1,7 +1,7 @@
 #ifndef GEOMETRICSHAPES_ELLIPSE_H
 #define GEOMETRICSHAPES_ELLIPSE_H
 
-#include "../AbstractEllipse.h"
+#include "AbstractEllipse.h"
 
 class Ellipse : public AbstractEllipse {
 private:
