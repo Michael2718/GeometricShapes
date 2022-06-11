@@ -2,9 +2,12 @@ cmake_minimum_required(VERSION 3.22)
 project(GeometricShapes)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
+
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GTKMM REQUIRED gtkmm-4.0)
+
+link_directories(${GTKMM_LIBRARY_DIRS})
+include_directories(${GTKMM_INCLUDE_DIRS})
 
 set(SHAPES_HEADERS
         src/Shapes/
@@ -21,8 +24,7 @@ set(SHAPES_HEADERS
         src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/Triangle.h
         src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/Rectangle.h
         src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/Rhombus.h
-        src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/Trapezoid.h
-)
+        src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/Trapezoid.h)
 
 set(SHAPES_SOURCES
         src/Shapes/AbstractShape.cpp
@@ -38,33 +40,36 @@ set(SHAPES_SOURCES
         src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/Triangle.cpp
         src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/Rectangle.cpp
         src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/Rhombus.cpp
-        src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/Trapezoid.cpp
-        )
+        src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/Trapezoid.cpp)
 
-find_package(Qt6 COMPONENTS
-        Core
-        Gui
-        Widgets
-        REQUIRED)
+set(GTK_HEADERS
+        src/Gtk/DrawingArea.h
+        src/Gtk/Window.h)
 
-add_executable(GeometricShapes src/main.cpp)
+set(GTK_SOURCES
+        src/Gtk/DrawingArea.cpp
+        src/Gtk/Window.cpp)
 
-#add_executable(SandBox ${SOURCES} ${HEADERS})
 add_executable(SandBox ${SHAPES_HEADERS} ${SHAPES_SOURCES} src/SandBox.cpp)
 
-target_link_libraries(GeometricShapes
-        Qt::Core
-        Qt::Gui
-        Qt::Widgets
-        )
+add_executable(GeometricShapes
+        ${SHAPES_HEADERS}
+        ${SHAPES_SOURCES}
+        ${GTK_HEADERS}
+        ${GTK_SOURCES}
+        src/main.cpp)
 
-target_include_directories(SandBox PUBLIC
+target_link_libraries(GeometricShapes ${GTKMM_LIBRARIES})
+
+target_include_directories(GeometricShapes PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Gtk/)
+target_include_directories(GeometricShapes PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/)
-target_include_directories(SandBox PUBLIC
+target_include_directories(GeometricShapes PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses)
-target_include_directories(SandBox PUBLIC
+target_include_directories(GeometricShapes PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractEllipseSubclasses/)
-target_include_directories(SandBox PUBLIC
+target_include_directories(GeometricShapes PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/)
-target_include_directories(SandBox PUBLIC
+target_include_directories(GeometricShapes PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/)
