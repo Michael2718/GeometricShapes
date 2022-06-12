@@ -14,6 +14,7 @@ public:
     std::vector<Point> GetPoints() const;
     Point GetCenter() const {return center;}
 
+    void Rotate(double angle) override;
     void Translate(double dx, double dy) override;
 protected:
     void SetPoints(const std::vector<Point>& new_points);

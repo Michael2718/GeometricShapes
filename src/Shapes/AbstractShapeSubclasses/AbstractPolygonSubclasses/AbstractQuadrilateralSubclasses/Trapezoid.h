@@ -14,9 +14,7 @@ public:
     double GetHeight() const {return h;}
 
     void Scale(double k) override;
-    void Rotate(double angle) override;
 
-    // TODO : Implement Perimeter() method
     double Perimeter() const override;
     double Area() const override;
 };

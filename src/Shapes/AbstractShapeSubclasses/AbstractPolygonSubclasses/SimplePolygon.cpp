@@ -55,19 +55,15 @@ void SimplePolygon::Scale(double k) {
     vector<Point> new_vertices;
     for (auto point: GetVertices()) {
         new_vertices.emplace_back(k*point.X()+(1-k)*center.X(),
-                                k*point.Y()+(1-k)*center.Y());
+                                  k*point.Y()+(1-k)*center.Y());
     }
     SetVertices(new_vertices);
 }
 
 void SimplePolygon::Rotate(double angle) {
     vector<Point> new_vertices;
-    double r_angle = angle * (M_PI / 180.0);
-    double new_x, new_y;
     for (auto point: GetVertices()) {
-        new_x = center.X() + (point.X()-center.X())*cos(r_angle) + (point.Y()-center.Y())*sin(r_angle);
-        new_y = center.Y() - (point.X()-center.X())*sin(r_angle) + (point.Y()-center.Y())*cos(r_angle);
-        new_vertices.emplace_back(new_x, new_y);
+        new_vertices.emplace_back(point.Rotate(center, angle));
     }
     SetVertices(new_vertices);
 }

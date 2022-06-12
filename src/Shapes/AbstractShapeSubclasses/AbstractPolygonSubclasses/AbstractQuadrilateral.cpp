@@ -14,6 +14,14 @@ AbstractQuadrilateral::AbstractQuadrilateral(unsigned int id, Point p1, Point p2
 
 vector<Point> AbstractQuadrilateral::GetPoints() const {return vector<Point>({p1, p2, p3, p4});}
 
+void AbstractQuadrilateral::Rotate(double angle) {
+    vector<Point> new_points;
+    for (auto point: GetPoints()) {
+        new_points.emplace_back(point.Rotate(center, angle));
+    }
+    SetPoints(new_points);
+}
+
 void AbstractQuadrilateral::Translate(double dx, double dy) {
     center.Translate(dx, dy);
     p1.Translate(dx, dy);
