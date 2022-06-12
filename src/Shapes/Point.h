@@ -13,6 +13,7 @@ public:
     double X() const {return x;}
     double Y() const {return y;}
 
+    Point Rotate(const Point& center, double angle) const;
     void Translate(double dx, double dy) {x += dx; y += dy;}
 
     friend std::ostream& operator<<(std::ostream& os, const Point& point);
