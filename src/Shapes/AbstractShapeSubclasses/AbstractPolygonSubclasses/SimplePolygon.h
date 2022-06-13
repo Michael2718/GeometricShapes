@@ -13,7 +13,7 @@ public:
     SimplePolygon(unsigned int id, const std::vector<Point>& points);
 
     std::vector<Point> GetVertices() const {return vertices;}
-    Point GetCenter() const {return center;}
+    Point GetCenter() const override {return center;}
 
     void Scale(double k) override;
     void Rotate(double angle) override;

@@ -12,7 +12,7 @@ public:
     AbstractQuadrilateral(unsigned int id, Point p1, Point p2, Point p3, Point p4, Point center);
 
     std::vector<Point> GetPoints() const;
-    Point GetCenter() const {return center;}
+    Point GetCenter() const override {return center;}
 
     void Rotate(double angle) override;
     void Translate(double dx, double dy) override;

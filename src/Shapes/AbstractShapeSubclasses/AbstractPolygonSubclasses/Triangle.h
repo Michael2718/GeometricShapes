@@ -13,7 +13,7 @@ public:
     Triangle(unsigned int id, Point p1, Point p2, Point p3);
 
     std::vector<Point> GetPoints() const {return {p1, p2, p3};}
-    Point GetCenter() const {return center;}
+    Point GetCenter() const override {return center;}
 
     void SetPoints(const std::vector<Point>& new_points);
 

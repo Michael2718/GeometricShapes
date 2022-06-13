@@ -11,7 +11,7 @@ private:
 public:
     AbstractEllipse(unsigned int id, Point center);
 
-    Point GetCenter() const {return center;}
+    Point GetCenter() const override {return center;}
     double GetRotationAngle() const {return rotation_angle;}
 
     void Rotate(double angle) override;
