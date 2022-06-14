@@ -1,33 +1,55 @@
 #include "ComplexShape.h"
 #include <stdexcept>
+#include <vector>
 #include "Point.h"
 
-using std::invalid_argument;
+using std::invalid_argument, std::vector;
 
-ComplexShape::ComplexShape(unsigned int id, const std::vector<AbstractShape *> &shapes)
-    : AbstractShape(id), shapes(shapes), center({0, 0}) {
+Point CalculateCenter(const vector<AbstractShape *> &shapes) {
+    double center_x = 0, center_y = 0, area = 0;
+    for (auto shape: shapes) {
+        center_x += shape->GetCenter().X()*shape->Area();
+        center_y += shape->GetCenter().Y()*shape->Area();
+        area += shape->Area();
+    }
+    return {center_x/area, center_y/area};
+}
+
+ComplexShape::ComplexShape(unsigned int id, const vector<AbstractShape *> &shapes)
+    : AbstractShape(id), shapes(shapes), center(CalculateCenter(shapes)) {
     if (shapes.empty()) throw invalid_argument("Invalid number of shapes. Complex shape can't be empty.");
-    // TODO : Calculate center of ComplexShape
 }
 
 void ComplexShape::Scale(double k) {
-    // Translate all shapes
-    // Scale all shapes
+    if (k <= 0) throw invalid_argument("Invalid scale factor k.");
+    double dx = 0, dy = 0;
+    for (auto shape: shapes) {
+        dx = (k-1)*(shape->GetCenter().X()-center.X());
+        dy = (k-1)*(shape->GetCenter().Y()-center.Y());
+        shape->Translate(dx, dy);
+        shape->Scale(k);
+    }
 }
 
 void ComplexShape::Rotate(double angle) {
-    // Rotate all shapes relatively around center of ComplexShape
+    for (auto shape: shapes) {
+        shape->Rotate(center, angle);
+    }
 }
 
 void ComplexShape::Translate(double dx, double dy) {
-    // Translate center
-    // Translate all shapes
+    center.Translate(dx, dy);
+    for (auto shape: shapes) shape->Translate(dx, dy);
 }
 
 double ComplexShape::Perimeter() const {
-    // Sum all perimeters
+    double perimeter = 0;
+    for (auto shape: shapes) perimeter += shape->Perimeter();
+    return perimeter;
 }
 
 double ComplexShape::Area() const {
-    //Sum all areas
+    double area = 0;
+    for (auto shape: shapes) area += shape->Area();
+    return area;
 }

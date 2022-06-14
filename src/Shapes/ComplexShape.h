@@ -13,7 +13,7 @@ public:
     explicit ComplexShape(unsigned int id, const std::vector<AbstractShape*> &shapes);
 
     std::vector<AbstractShape*> GetShapes() const {return shapes;}
-    Point GetCenter() const {return center;}
+    Point GetCenter() const override {return center;}
 
     void Scale(double k) override;
     void Rotate(double angle) override;
