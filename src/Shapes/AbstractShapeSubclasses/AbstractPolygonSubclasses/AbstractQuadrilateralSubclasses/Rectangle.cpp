@@ -24,7 +24,10 @@ Rectangle::Rectangle(unsigned int id, Point p1, Point p2, Point p3, Point p4)
         throw invalid_argument("Invalid points.");
     }
 
-    if (GetCenter().X() - p1.X() <= 0 || GetCenter().Y() - p1.Y() >= 0) throw invalid_argument("Invalid points.");
+    if (AbstractQuadrilateral::GetCenter().X() - p1.X() <= 0 ||
+        AbstractQuadrilateral::GetCenter().Y() - p1.Y() >= 0) {
+        throw invalid_argument("Invalid points.");
+    }
 }
 
 void Rectangle::Scale(double k) {
