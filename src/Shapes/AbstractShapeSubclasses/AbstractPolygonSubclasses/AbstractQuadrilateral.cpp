@@ -1,8 +1,10 @@
 #include "AbstractQuadrilateral.h"
 #include <stdexcept>
 #include <vector>
+#include <string>
+#include <sstream>
 
-using std::invalid_argument, std::vector;
+using std::invalid_argument, std::vector, std::string, std::ostringstream;
 
 AbstractQuadrilateral::AbstractQuadrilateral(ShapeID id, Point p1, Point p2, Point p3, Point p4, Point center)
     : AbstractPolygon(id, 4),
@@ -36,6 +38,19 @@ void AbstractQuadrilateral::Translate(double dx, double dy) {
     p2.Translate(dx, dy);
     p3.Translate(dx, dy);
     p4.Translate(dx, dy);
+}
+
+string AbstractQuadrilateral::Info() const {
+    ostringstream oss;
+    oss << AbstractPolygon::Info() << "\n";
+
+    oss << "Points: ";
+    for (auto point: {p1, p2, p3, p4}) oss << point << " ";
+    oss << "\n";
+
+    oss << "Center: " << center;
+
+    return oss.str();
 }
 
 void AbstractQuadrilateral::SetPoints(const std::vector<Point> &new_points) {

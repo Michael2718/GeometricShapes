@@ -3,6 +3,7 @@
 
 #include "AbstractQuadrilateral.h"
 #include "Point.h"
+#include <string>
 
 class Rhombus : public AbstractQuadrilateral {
 private:
@@ -18,7 +19,8 @@ public:
 
     double Perimeter() const override;
     double Area() const override;
-};
 
+    std::string Info() const override;
+};
 
 #endif //GEOMETRICSHAPES_RHOMBUS_H

@@ -4,6 +4,7 @@
 #include "AbstractPolygon.h"
 #include "Point.h"
 #include <vector>
+#include <string>
 
 class AbstractQuadrilateral : public AbstractPolygon {
 private:
@@ -17,6 +18,8 @@ public:
     void Rotate(double angle) override;
     void Rotate(Point r_center, double angle) override;
     void Translate(double dx, double dy) override;
+
+    std::string Info() const override;
 protected:
     void SetPoints(const std::vector<Point>& new_points);
 };

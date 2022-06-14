@@ -33,6 +33,8 @@ public:
 
     virtual double Perimeter() const = 0;
     virtual double Area() const = 0;
+
+    virtual std::string Info() const = 0;
 };
 
 #endif //GEOMETRICSHAPES_ABSTRACTSHAPE_H

@@ -17,6 +17,8 @@ public:
 
     double Perimeter() const override;
     double Area() const override;
+
+    std::string Info() const override;
 };
 
 

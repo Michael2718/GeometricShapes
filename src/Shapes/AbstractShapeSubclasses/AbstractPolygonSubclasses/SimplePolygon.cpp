@@ -1,8 +1,10 @@
 #include "SimplePolygon.h"
 #include <stdexcept>
+#include <string>
+#include <sstream>
 #include <cmath>
 
-using std::invalid_argument, std::vector;
+using std::invalid_argument, std::vector, std::string, std::ostringstream;
 
 double AreaOfTriangle(Point p1, Point p2, Point p3) {
     return 0.5*std::abs(p1.X()*(p2.Y() - p3.Y()) +
@@ -99,6 +101,23 @@ double SimplePolygon::Area() const {
         area -= vertices[(i+1)%n].X()*vertices[i].Y();
     }
     return std::abs(area/2);
+}
+
+string SimplePolygon::Info() const {
+    ostringstream oss;
+
+    oss << "Simple Polygon Info: " << "\n"
+        << AbstractPolygon::Info() << "\n";
+
+    oss << "Vertices: ";
+    for (auto vertex: vertices) oss << vertex << " ";
+    oss << "\n";
+
+    oss << "Center: " << center << "\n"
+        << "Perimeter: " << Perimeter() << "\n"
+        << "Area: " << Area();
+
+    return oss.str();
 }
 
 void SimplePolygon::SetVertices(const std::vector<Point> &new_vertices) {

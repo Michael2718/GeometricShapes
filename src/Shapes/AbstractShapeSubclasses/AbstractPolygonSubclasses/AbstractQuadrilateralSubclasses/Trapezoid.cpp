@@ -2,8 +2,10 @@
 #include <stdexcept>
 #include <cmath>
 #include <vector>
+#include <string>
+#include <sstream>
 
-using std::invalid_argument, std::vector;
+using std::invalid_argument, std::vector, std::string, std::ostringstream;
 
 Trapezoid::Trapezoid(Point p1, Point p2, Point p3, Point p4)
     : AbstractQuadrilateral(TRAPEZOID, p1, p2, p3, p4,
@@ -17,7 +19,7 @@ Trapezoid::Trapezoid(Point p1, Point p2, Point p3, Point p4)
         if ((p2.X()-p1.X()) / (p3.X()-p4.X()) != (p2.Y()-p1.Y()) / (p3.Y()-p4.Y()))
         throw invalid_argument("Invalid points.");
     }
-    if (GetCenter().Y() - p1.Y() >= 0) throw invalid_argument("Invalid points.");
+    if (AbstractQuadrilateral::GetCenter().Y() - p1.Y() >= 0) throw invalid_argument("Invalid points.");
 }
 
 void Trapezoid::Scale(double k) {
@@ -37,3 +39,19 @@ void Trapezoid::Scale(double k) {
 double Trapezoid::Perimeter() const {return a + b + c + d;}
 
 double Trapezoid::Area() const {return (a + b) / 2 * h;}
+
+string Trapezoid::Info() const {
+    ostringstream oss;
+    oss << "Trapezoid Info: " << "\n"
+        << AbstractQuadrilateral::Info() << "\n"
+        << "Side 'a': " << a << "\n"
+        << "Side 'b': " << b << "\n"
+        << "Side 'c': " << c << "\n"
+        << "Side 'd': " << d << "\n"
+        << "Height: " << h << "\n"
+        << "Perimeter: " << Perimeter() << "\n"
+        << "Area: " << Area();
+
+    return oss.str();
+}
+

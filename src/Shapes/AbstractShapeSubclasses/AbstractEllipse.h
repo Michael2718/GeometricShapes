@@ -3,6 +3,7 @@
 
 #include "AbstractShape.h"
 #include "Point.h"
+#include <string>
 
 class AbstractEllipse : public AbstractShape {
 private:
@@ -17,6 +18,8 @@ public:
     void Rotate(double angle) override;
     void Rotate(Point r_center, double angle) override;
     void Translate(double dx, double dy) override;
+
+    std::string Info() const override;
 };
 
 

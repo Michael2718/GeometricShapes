@@ -1,8 +1,10 @@
 #include "Rectangle.h"
 #include <stdexcept>
 #include <cmath>
+#include <string>
+#include <sstream>
 
-using std::invalid_argument, std::vector;
+using std::invalid_argument, std::vector, std::string, std::ostringstream;
 
 Rectangle::Rectangle(Point center, double width, double height)
     : AbstractQuadrilateral(RECTANGLE,
@@ -46,3 +48,16 @@ void Rectangle::Scale(double k) {
 double Rectangle::Perimeter() const {return 2*(width+height);}
 
 double Rectangle::Area() const {return width*height;}
+
+string Rectangle::Info() const {
+    ostringstream oss;
+
+    oss << "Rectangle Info: " << "\n"
+        << AbstractQuadrilateral::Info() << "\n"
+        << "Width: " << width << "\n"
+        << "Height: " << height << "\n"
+        << "Perimeter: " << Perimeter() << "\n"
+        << "Area: " << Area() << "\n";
+
+    return oss.str();
+}

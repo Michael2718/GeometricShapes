@@ -2,8 +2,10 @@
 #include <stdexcept>
 #include <cmath>
 #include <vector>
+#include <string>
+#include <sstream>
 
-using std::invalid_argument, std::vector;
+using std::invalid_argument, std::vector, std::string, std::ostringstream;
 
 Rhombus::Rhombus(Point center, double d1, double d2)
     : AbstractQuadrilateral(RHOMBUS,
@@ -44,3 +46,16 @@ void Rhombus::Scale(double k) {
 double Rhombus::Perimeter() const {return 2*sqrt(d1*d1 + d2*d2);}
 
 double Rhombus::Area() const {return (d1*d2)/2;}
+
+string Rhombus::Info() const {
+    ostringstream oss;
+
+    oss << "Rhombus Info:" << "\n"
+        << AbstractQuadrilateral::Info() << "\n"
+        << "First Diagonal: " << d1 << "\n"
+        << "Second Diagonal: " << d2 << "\n"
+        << "Perimeter: " << Perimeter() << "\n"
+        << "Area: " << Area();
+
+    return oss.str();
+}

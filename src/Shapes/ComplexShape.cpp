@@ -1,9 +1,11 @@
 #include "ComplexShape.h"
 #include <stdexcept>
 #include <vector>
+#include <string>
+#include <sstream>
 #include "Point.h"
 
-using std::invalid_argument, std::vector;
+using std::invalid_argument, std::vector, std::string, std::ostringstream;
 
 Point CalculateCenter(const vector<AbstractShape *> &shapes) {
     double center_x = 0, center_y = 0, area = 0;
@@ -60,4 +62,17 @@ double ComplexShape::Area() const {
     double area = 0;
     for (auto shape: shapes) area += shape->Area();
     return area;
+}
+
+string ComplexShape::Info() const {
+    ostringstream oss;
+
+    oss << "Complex Shape Info:" << "\n";
+
+    for (auto shape: shapes) {
+        oss << shape->Info();
+        if (shape != shapes.back()) oss << "\n";
+    }
+
+    return oss.str();
 }

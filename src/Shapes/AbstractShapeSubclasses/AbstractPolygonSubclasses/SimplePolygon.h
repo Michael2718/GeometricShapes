@@ -4,6 +4,7 @@
 #include "AbstractPolygon.h"
 #include "Point.h"
 #include <vector>
+#include <string>
 
 class SimplePolygon : public AbstractPolygon {
 private:
@@ -22,6 +23,8 @@ public:
 
     double Perimeter() const override;
     double Area() const override;
+
+    std::string Info() const override;
 protected:
     void SetVertices(const std::vector<Point>& new_vertices);
 };

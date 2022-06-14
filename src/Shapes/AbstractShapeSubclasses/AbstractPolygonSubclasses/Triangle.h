@@ -4,6 +4,7 @@
 #include "AbstractPolygon.h"
 #include "Point.h"
 #include <vector>
+#include <string>
 
 class Triangle : public AbstractPolygon {
 private:
@@ -24,6 +25,8 @@ public:
 
     double Perimeter() const override;
     double Area() const override;
+
+    std::string Info() const override;
 };
 
 

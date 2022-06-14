@@ -4,6 +4,7 @@
 #include "AbstractShape.h"
 #include "Point.h"
 #include <vector>
+#include <string>
 
 class ComplexShape : public AbstractShape {
 private:
@@ -22,6 +23,8 @@ public:
 
     double Perimeter() const override;
     double Area() const override;
+
+    std::string Info() const override;
 };
 
 

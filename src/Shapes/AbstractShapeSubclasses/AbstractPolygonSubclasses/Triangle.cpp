@@ -1,9 +1,11 @@
 #include "Triangle.h"
 #include <stdexcept>
-#include <vector>
 #include "cmath"
+#include <vector>
+#include <string>
+#include <sstream>
 
-using std::invalid_argument, std::vector;
+using std::invalid_argument, std::vector, std::string, std::ostringstream;
 
 Triangle::Triangle(std::vector<Point> points)
     : AbstractPolygon(TRIANGLE, 3), p1(points[0]), p2(points[1]), p3(points[2]),
@@ -69,4 +71,21 @@ double Triangle::Area() const {
     return 0.5*std::abs(p1.X()*(p2.Y() - p3.Y()) +
                            p2.X()*(p3.Y() - p1.Y()) +
                            p3.X()*(p1.Y() - p2.Y()));
+}
+
+string Triangle::Info() const {
+    ostringstream oss;
+
+    oss << "Triangle Info: " << "\n"
+        << AbstractPolygon::Info() << "\n";
+
+    oss << "Points: ";
+    for (auto point: {p1, p2, p3}) oss << point << " ";
+    oss << "\n";
+
+    oss << "Center: " << center << "\n"
+        << "Perimeter: " << Perimeter() << "\n"
+        << "Area: " << Area() << "\n";
+
+    return oss.str();
 }

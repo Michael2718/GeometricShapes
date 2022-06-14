@@ -2,6 +2,7 @@
 #define GEOMETRICSHAPES_CIRCLE_H
 
 #include "../AbstractEllipse.h"
+#include <string>
 
 class Circle : public AbstractEllipse {
 private:
@@ -15,6 +16,8 @@ public:
 
     double Perimeter() const override;
     double Area() const override;
+
+    std::string Info() const override;
 };
 
 
