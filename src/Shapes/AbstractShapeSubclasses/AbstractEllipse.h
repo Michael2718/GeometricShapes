@@ -10,7 +10,7 @@ private:
     Point center;
     double rotation_angle;
 public:
-    AbstractEllipse(ShapeID id, Point center);
+    AbstractEllipse(ShapeId id, Point center);
 
     Point GetCenter() const override {return center;}
     double GetRotationAngle() const {return rotation_angle;}

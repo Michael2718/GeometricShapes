@@ -4,7 +4,7 @@
 
 using std::string, std::ostringstream;
 
-AbstractEllipse::AbstractEllipse(ShapeID id, Point center)
+AbstractEllipse::AbstractEllipse(ShapeId id, Point center)
     : AbstractShape(id), center(center), rotation_angle(0) {}
 
 void AbstractEllipse::Rotate(double angle) {

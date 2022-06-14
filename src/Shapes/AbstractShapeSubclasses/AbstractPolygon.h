@@ -8,7 +8,7 @@ class AbstractPolygon : public AbstractShape {
 private:
     unsigned int vertex_count;
 public:
-    AbstractPolygon(ShapeID id, unsigned int vertex_count);
+    AbstractPolygon(ShapeId id, unsigned int vertex_count);
 
     unsigned int GetVertexCount() const;
 

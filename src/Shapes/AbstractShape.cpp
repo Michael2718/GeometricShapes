@@ -3,7 +3,7 @@
 
 using std::invalid_argument;
 
-AbstractShape::AbstractShape(ShapeID id)
+AbstractShape::AbstractShape(ShapeId id)
     : id(id) {
 }
 

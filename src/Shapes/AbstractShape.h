@@ -4,7 +4,7 @@
 #include <string>
 #include "Point.h"
 
-enum ShapeID {
+enum ShapeId {
     SIMPLE_POLYGON,
     RECTANGLE,
     RHOMBUS,
@@ -17,12 +17,12 @@ enum ShapeID {
 
 class AbstractShape {
 private:
-    ShapeID id;
+    ShapeId id;
 public:
-    explicit AbstractShape(ShapeID id);
+    explicit AbstractShape(ShapeId id);
     virtual ~AbstractShape() = default;
 
-    ShapeID GetId() const {return id;}
+    ShapeId GetId() const {return id;}
     std::string GetStringId() const;
     virtual Point GetCenter() const = 0;
 
