@@ -4,8 +4,8 @@
 
 using std::invalid_argument;
 
-Circle::Circle(unsigned int id, Point center, double r)
-    : AbstractEllipse(id, center), r(r) {
+Circle::Circle(Point center, double r)
+    : AbstractEllipse(CIRCLE, center), r(r) {
     if (r <= 0) throw invalid_argument("Invalid radius.");
 }
 

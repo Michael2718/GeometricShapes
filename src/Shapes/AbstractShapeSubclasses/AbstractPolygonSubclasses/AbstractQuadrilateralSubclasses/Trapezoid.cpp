@@ -5,8 +5,8 @@
 
 using std::invalid_argument, std::vector;
 
-Trapezoid::Trapezoid(unsigned int id, Point p1, Point p2, Point p3, Point p4)
-    : AbstractQuadrilateral(id, p1, p2, p3, p4,
+Trapezoid::Trapezoid(Point p1, Point p2, Point p3, Point p4)
+    : AbstractQuadrilateral(TRAPEZOID, p1, p2, p3, p4,
                             {(p1.X()+p2.X()+p3.X()+p4.X())/4, (p1.Y()+p2.Y()+p3.Y()+p4.Y())/4}),
     a(sqrt(pow(p2.X()-p1.X(),2)+pow(p2.Y()-p1.Y(),2))),
     b(sqrt(pow(p4.X()-p3.X(),2)+pow(p4.Y()-p3.Y(),2))),

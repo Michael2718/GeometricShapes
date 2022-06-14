@@ -5,18 +5,19 @@
 
 using std::invalid_argument, std::vector;
 
-Rhombus::Rhombus(unsigned int id, Point center, double d1, double d2)
-    : AbstractQuadrilateral(id, {center.X(), center.Y()+d2/2},
-                                {center.X()+d1/2, center.Y()},
-                                {center.X(), center.Y()-d2/2},
-                                {center.X()-d1/2, center.Y()},
-                                center),
+Rhombus::Rhombus(Point center, double d1, double d2)
+    : AbstractQuadrilateral(RHOMBUS,
+                            {center.X(), center.Y()+d2/2},
+                            {center.X()+d1/2, center.Y()},
+                            {center.X(), center.Y()-d2/2},
+                            {center.X()-d1/2, center.Y()},
+                            center),
     d1(d1), d2(d2) {
     if (d1 <= 0 || d2 <= 0) throw invalid_argument("Invalid diagonals.");
 }
 
-Rhombus::Rhombus(unsigned int id, Point center, Point p1, Point p2)
-    : AbstractQuadrilateral(id, p1, p2,
+Rhombus::Rhombus(Point center, Point p1, Point p2)
+    : AbstractQuadrilateral(RHOMBUS, p1, p2,
                             {2 * center.X() - p1.X(), 2 * center.Y() - p1.Y()},
                             {2 * center.X() - p2.X(), 2 * center.Y() - p2.Y()},
                             center),

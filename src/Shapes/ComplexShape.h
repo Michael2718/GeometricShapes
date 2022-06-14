@@ -10,7 +10,7 @@ private:
     std::vector<AbstractShape*> shapes;
     Point center;
 public:
-    explicit ComplexShape(unsigned int id, const std::vector<AbstractShape*> &shapes);
+    explicit ComplexShape(const std::vector<AbstractShape*> &shapes);
 
     std::vector<AbstractShape*> GetShapes() const {return shapes;}
     Point GetCenter() const override {return center;}

@@ -4,18 +4,19 @@
 
 using std::invalid_argument, std::vector;
 
-Rectangle::Rectangle(unsigned int id, Point center, double width, double height)
-    : AbstractQuadrilateral(id, {center.X() - width / 2, center.Y() + height / 2},
-                                {center.X() + width / 2, center.Y() + height / 2},
-                                {center.X() + width / 2, center.Y() - height / 2},
-                                {center.X() - width / 2, center.Y() - height / 2},
-                                center),
+Rectangle::Rectangle(Point center, double width, double height)
+    : AbstractQuadrilateral(RECTANGLE,
+                            {center.X() - width / 2, center.Y() + height / 2},
+                            {center.X() + width / 2, center.Y() + height / 2},
+                            {center.X() + width / 2, center.Y() - height / 2},
+                            {center.X() - width / 2, center.Y() - height / 2},
+                            center),
     width(width), height(height) {
     if (width <= 0 || height <= 0) throw invalid_argument("Invalid sides.");
 }
 
-Rectangle::Rectangle(unsigned int id, Point p1, Point p2, Point p3, Point p4)
-    : AbstractQuadrilateral(id, p1, p2, p3, p4,
+Rectangle::Rectangle(Point p1, Point p2, Point p3, Point p4)
+    : AbstractQuadrilateral(RECTANGLE, p1, p2, p3, p4,
                             {(p1.X()+p3.X())/2, (p1.Y()+p3.Y())/2}),
     width (sqrt(pow(p2.X()-p1.X(), 2) + pow(p2.Y()-p1.Y(), 2))),
     height(sqrt(pow(p4.X()-p1.X(), 2) + pow(p4.Y()-p1.Y(), 2))) {

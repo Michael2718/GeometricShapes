@@ -7,7 +7,7 @@ class Circle : public AbstractEllipse {
 private:
     double r;
 public:
-    Circle(unsigned int id, Point center, double r);
+    Circle(Point center, double r);
 
     double GetRadius() const {return r;}
 

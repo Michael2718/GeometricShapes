@@ -3,12 +3,22 @@
 
 #include "Point.h"
 
+enum ShapeID {
+    SIMPLE_POLYGON,
+    RECTANGLE,
+    RHOMBUS,
+    TRAPEZOID,
+    TRIANGLE,
+    ELLIPSE,
+    CIRCLE,
+    COMPLEX_SHAPE
+};
+
 class AbstractShape {
 private:
-    unsigned int id;
+    ShapeID id;
 public:
-    AbstractShape();
-    explicit AbstractShape(unsigned int id);
+    explicit AbstractShape(ShapeID id);
     virtual ~AbstractShape() = default;
 
     unsigned int GetId() const {return id;}

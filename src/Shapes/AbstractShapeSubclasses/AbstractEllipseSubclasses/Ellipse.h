@@ -7,7 +7,7 @@ class Ellipse : public AbstractEllipse {
 private:
     double a, b; // a - Semi-major axis; b - Semi-minor axis
 public:
-    Ellipse(unsigned int id, Point center, double a, double b);
+    Ellipse(Point center, double a, double b);
 
     double GetA() const {return a;}
     double GetB() const {return b;}

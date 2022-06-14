@@ -4,7 +4,7 @@
 
 using std::invalid_argument, std::vector;
 
-AbstractQuadrilateral::AbstractQuadrilateral(unsigned int id, Point p1, Point p2, Point p3, Point p4, Point center)
+AbstractQuadrilateral::AbstractQuadrilateral(ShapeID id, Point p1, Point p2, Point p3, Point p4, Point center)
     : AbstractPolygon(id, 4),
     p1(p1), p2(p2), p3(p3), p4(p4), center(center) {
     if (p1 == p2 || p1 == p3 || p1 == p4 || p2 == p3 || p2 == p4 || p3 == p4) {

@@ -1,6 +1,6 @@
 #include "AbstractEllipse.h"
 
-AbstractEllipse::AbstractEllipse(unsigned int id, Point center)
+AbstractEllipse::AbstractEllipse(ShapeID id, Point center)
     : AbstractShape(id), center(center), rotation_angle(0) {}
 
 void AbstractEllipse::Rotate(double angle) {

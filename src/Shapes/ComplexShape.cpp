@@ -15,8 +15,8 @@ Point CalculateCenter(const vector<AbstractShape *> &shapes) {
     return {center_x/area, center_y/area};
 }
 
-ComplexShape::ComplexShape(unsigned int id, const vector<AbstractShape *> &shapes)
-    : AbstractShape(id), shapes(shapes), center(CalculateCenter(shapes)) {
+ComplexShape::ComplexShape(const vector<AbstractShape *> &shapes)
+    : AbstractShape(COMPLEX_SHAPE), shapes(shapes), center(CalculateCenter(shapes)) {
     if (shapes.empty()) throw invalid_argument("Invalid number of shapes. Complex shape can't be empty.");
 }
 

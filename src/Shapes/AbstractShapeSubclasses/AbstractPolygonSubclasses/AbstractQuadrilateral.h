@@ -9,7 +9,7 @@ class AbstractQuadrilateral : public AbstractPolygon {
 private:
     Point p1, p2, p3, p4, center;
 public:
-    AbstractQuadrilateral(unsigned int id, Point p1, Point p2, Point p3, Point p4, Point center);
+    AbstractQuadrilateral(ShapeID id, Point p1, Point p2, Point p3, Point p4, Point center);
 
     std::vector<Point> GetPoints() const;
     Point GetCenter() const override {return center;}

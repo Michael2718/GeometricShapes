@@ -4,8 +4,8 @@
 
 using std::invalid_argument;
 
-Ellipse::Ellipse(unsigned int id, Point center, double a, double b)
-    : AbstractEllipse(id, center), a(a), b(b) {
+Ellipse::Ellipse(Point center, double a, double b)
+    : AbstractEllipse(ELLIPSE, center), a(a), b(b) {
     if (a <= 0 || b <= 0) throw invalid_argument("Invalid semi-axes.");
 }
 
