@@ -15,6 +15,7 @@ public:
     double GetRotationAngle() const {return rotation_angle;}
 
     void Rotate(double angle) override;
+    void Rotate(Point r_center, double angle) override;
     void Translate(double dx, double dy) override;
 };
 

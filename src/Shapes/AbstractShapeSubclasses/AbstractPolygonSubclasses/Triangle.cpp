@@ -43,6 +43,14 @@ void Triangle::Rotate(double angle) {
     SetPoints(new_points);
 }
 
+void Triangle::Rotate(Point r_center, double angle) {
+    vector<Point> new_points;
+    for (auto point: GetPoints()) {
+        new_points.emplace_back(point.Rotate(r_center, angle));
+    }
+    SetPoints(new_points);
+}
+
 void Triangle::Translate(double dx, double dy) {
     center.Translate(dx, dy);
     p1.Translate(dx, dy);

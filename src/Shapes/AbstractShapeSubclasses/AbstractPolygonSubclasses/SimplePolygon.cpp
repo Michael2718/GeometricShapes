@@ -68,6 +68,14 @@ void SimplePolygon::Rotate(double angle) {
     SetVertices(new_vertices);
 }
 
+void SimplePolygon::Rotate(Point r_center, double angle) {
+    vector<Point> new_vertices;
+    for (auto point: GetVertices()) {
+        new_vertices.emplace_back(point.Rotate(r_center, angle));
+    }
+    SetVertices(new_vertices);
+}
+
 void SimplePolygon::Translate(double dx, double dy) {
     for (auto vertex: vertices) vertex.Translate(dx, dy);
     center.Translate(dx, dy);

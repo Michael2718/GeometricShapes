@@ -19,6 +19,7 @@ public:
 
     void Scale(double k) override;
     void Rotate(double angle) override;
+    void Rotate(Point r_center, double angle) override;
     void Translate(double dx, double dy) override;
 
     double Perimeter() const override;

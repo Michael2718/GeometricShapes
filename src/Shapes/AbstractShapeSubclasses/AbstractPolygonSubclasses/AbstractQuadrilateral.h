@@ -15,6 +15,7 @@ public:
     Point GetCenter() const override {return center;}
 
     void Rotate(double angle) override;
+    void Rotate(Point r_center, double angle) override;
     void Translate(double dx, double dy) override;
 protected:
     void SetPoints(const std::vector<Point>& new_points);
