@@ -72,10 +72,10 @@ int main() {
     Rectangle r(2, {0, 0}, 3, 2);
     Circle c(3, {-1, -1}, 4);
 
-    vector<AbstractShape*> shapes;
+/*    vector<AbstractShape*> shapes;
     shapes.push_back(new SimplePolygon(sp));
     shapes.push_back(new Rectangle(r));
-    shapes.push_back(new Circle(c));
+    shapes.push_back(new Circle(c));*/
 
 
     ShapeFactory factory;

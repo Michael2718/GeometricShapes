@@ -8,11 +8,12 @@
 #include "SimplePolygon.h"
 #include "Rectangle.h"
 #include "Circle.h"
+#include "ComplexShape.h"
 
 using std::cout, std::cin, std::cerr, std::vector;
 
 int main() {
-    vector<Point> points = {{2,  2},
+/*    vector<Point> points = {{2,  2},
                             {6,  1},
                             {7,  2},
                             {5,  -2},
@@ -21,17 +22,28 @@ int main() {
                             {1, 1},
                             {-2, -1},
                             {-2, 2}};
+    vector<Point> points = {{2,4},
+                            {6, 4},
+                            {4, 4},
+                            {5, 2},
+                            {3,2}};*/
 
-    SimplePolygon simple_polygon(1, points);
-    cout << "Simple Polygon Area: " << simple_polygon.Area() << "\n";
+    Rectangle rectangle(2, {5.5, 2}, 7, 4);
+    cout << "Rectangle created. Center: " << rectangle.GetCenter() << "\n";
 
-    Rectangle rectangle(2, {0, 0}, 3, 2);
-    cout << "Rectangle Area: " << rectangle.Area() << "\n";
+    Circle circle(1, {0, 2}, 2);
+    cout << "Circle created. Center: " << circle.GetCenter() << "\n";
 
-    Circle circle(3, {-1, -1}, 4);
-    cout << "Circle Area: " << circle.Area() << "\n";
+    vector<AbstractShape *> shapes = {new Circle(circle), new Rectangle(rectangle)};
 
-    vector<AbstractShape*> shapes;
+    ComplexShape complex_shape(3, shapes);
+    cout << "Complex shape created. Center: " << complex_shape.GetCenter() << "\n";
+    complex_shape.Scale(2);
+    cout << "Complex shape scaled by 2" << "\n";
+    cout << "Center of Circle: " << complex_shape.GetShapes()[0]->GetCenter() << "\n";
+    cout << "Center of Rectangle: " << complex_shape.GetShapes()[1]->GetCenter() << "\n";
+
+/*    vector<AbstractShape*> shapes;
     shapes.push_back(new SimplePolygon(simple_polygon));
     shapes.push_back(new Rectangle(rectangle));
     shapes.push_back(new Circle(circle));
@@ -43,7 +55,7 @@ int main() {
 
     for (auto &shape: shapes) {
         delete shape;
-    }
+    }*/
 
     return 0;
 }
