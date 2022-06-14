@@ -22,7 +22,7 @@ ComplexShape::ComplexShape(const vector<AbstractShape *> &shapes)
 
 void ComplexShape::Scale(double k) {
     if (k <= 0) throw invalid_argument("Invalid scale factor k.");
-    double dx = 0, dy = 0;
+    double dx, dy;
     for (auto shape: shapes) {
         dx = (k-1)*(shape->GetCenter().X()-center.X());
         dy = (k-1)*(shape->GetCenter().Y()-center.Y());
