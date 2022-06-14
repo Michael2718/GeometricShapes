@@ -37,6 +37,14 @@ void ComplexShape::Rotate(double angle) {
     }
 }
 
+void ComplexShape::Rotate(Point r_center, double angle) {
+    center.Rotate(r_center, angle);
+    for (auto shape: shapes) {
+        shape->Rotate(r_center, angle);
+    }
+}
+
+
 void ComplexShape::Translate(double dx, double dy) {
     center.Translate(dx, dy);
     for (auto shape: shapes) shape->Translate(dx, dy);
