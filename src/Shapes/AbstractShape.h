@@ -1,6 +1,7 @@
 #ifndef GEOMETRICSHAPES_ABSTRACTSHAPE_H
 #define GEOMETRICSHAPES_ABSTRACTSHAPE_H
 
+#include <string>
 #include "Point.h"
 
 enum ShapeID {
@@ -21,7 +22,8 @@ public:
     explicit AbstractShape(ShapeID id);
     virtual ~AbstractShape() = default;
 
-    unsigned int GetId() const {return id;}
+    ShapeID GetId() const {return id;}
+    std::string GetStringId() const;
     virtual Point GetCenter() const = 0;
 
     virtual void Scale(double k) = 0;
