@@ -12,7 +12,7 @@ public:
     ShapeFactory();
     explicit ShapeFactory(const std::vector<AbstractShape*>& shapes);
 
-    ~ShapeFactory();
+    //~ShapeFactory();
 
     std::vector<AbstractShape*> GetShapes() const {return shapes;}
     unsigned int GetQuantity() const {return quantity;}

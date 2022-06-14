@@ -18,12 +18,12 @@ ShapeFactory::ShapeFactory(const std::vector<AbstractShape*>& shapes)
     }
 }
 
-ShapeFactory::~ShapeFactory() {
+/*ShapeFactory::~ShapeFactory() {
     for (auto & shape: shapes) {
         delete shape;
     }
     shapes.clear();
-}
+}*/
 
 void ShapeFactory::AddShape(AbstractShape *new_shape) {
     for (auto shape: shapes) {
