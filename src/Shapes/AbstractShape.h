@@ -18,6 +18,7 @@ enum ShapeId {
 class AbstractShape {
 private:
     ShapeId id;
+    bool is_part_of_complex_shape;
 public:
     explicit AbstractShape(ShapeId id);
     virtual ~AbstractShape() = default;
@@ -25,6 +26,8 @@ public:
     ShapeId GetId() const {return id;}
     std::string GetStringId() const;
     virtual Point GetCenter() const = 0;
+
+    bool isPartOfComplexShape() const {return is_part_of_complex_shape;}
 
     virtual void Scale(double k) = 0;
     virtual void Rotate(double angle) = 0;

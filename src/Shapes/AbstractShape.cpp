@@ -4,9 +4,8 @@
 using std::invalid_argument;
 
 AbstractShape::AbstractShape(ShapeId id)
-    : id(id) {
+    : id(id), is_part_of_complex_shape(false) {
 }
-
 
 std::string AbstractShape::GetStringId() const {
     switch (id) {
