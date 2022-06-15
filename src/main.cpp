@@ -18,7 +18,7 @@ int main(int argc, char* argv[]) {
                             {1, 1},
                             {-2, -1},
                             {-2, 2}};
-    SimplePolygon sp(1, points);
+    SimplePolygon sp(points);
     std::cout << "Polygon area: " << sp.Area();
     auto app = Gtk::Application::create("org.gtkmm.example");
     //g_application_new(nullptr, G_APPLICATION_FLAGS_NONE);

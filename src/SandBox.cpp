@@ -7,6 +7,9 @@
 #include "Point.h"
 #include "SimplePolygon.h"
 #include "Rectangle.h"
+#include "Rhombus.h"
+#include "Trapezoid.h"
+#include "Triangle.h"
 #include "Circle.h"
 #include "ComplexShape.h"
 
@@ -21,41 +24,44 @@ int main() {
                             {4, 1},
                             {1, 1},
                             {-2, -1},
-                            {-2, 2}};
-    vector<Point> points = {{2,4},
+                            {-2, 2}};*/
+
+/*    vector<Point> points = {{2,4},
                             {6, 4},
                             {4, 4},
                             {5, 2},
                             {3,2}};*/
 
-    Rectangle rectangle(2, {5.5, 2}, 7, 4);
-    cout << "Rectangle created. Center: " << rectangle.GetCenter() << "\n";
 
-    Circle circle(1, {0, 2}, 2);
-    cout << "Circle created. Center: " << circle.GetCenter() << "\n";
 
-    vector<AbstractShape *> shapes = {new Circle(circle), new Rectangle(rectangle)};
+    Rectangle rectangle({6, 4}, 12, 8);
+    cout << "Rectangle was created." << "\n";
 
-    ComplexShape complex_shape(3, shapes);
-    cout << "Complex shape created. Center: " << complex_shape.GetCenter() << "\n";
-    complex_shape.Scale(2);
-    cout << "Complex shape scaled by 2" << "\n";
-    cout << "Center of Circle: " << complex_shape.GetShapes()[0]->GetCenter() << "\n";
-    cout << "Center of Rectangle: " << complex_shape.GetShapes()[1]->GetCenter() << "\n";
+    Triangle triangle({4,16}, {12, 8}, {0, 8});
+    cout << "Triangle was created." << "\n";
 
-/*    vector<AbstractShape*> shapes;
-    shapes.push_back(new SimplePolygon(simple_polygon));
-    shapes.push_back(new Rectangle(rectangle));
-    shapes.push_back(new Circle(circle));
+    vector<AbstractShape *> shapes1;
+    shapes1.push_back(new Rectangle(rectangle));
+    shapes1.push_back(new Triangle(triangle));
 
-    ShapeFactory factory;
-    factory.AddShape(new SimplePolygon(simple_polygon));
-    factory.AddShape(new Rectangle(rectangle));
-    factory.AddShape(new Circle(circle));
+    ComplexShape tr_rec(shapes1);
+    cout << "Complex shape(triangle and rectangle) was created." << "\n";
 
-    for (auto &shape: shapes) {
-        delete shape;
-    }*/
+    Circle circle({-4, 4}, 4);
+    cout << "Circle created." << "\n";
+
+    vector<AbstractShape *> shapes2;
+    shapes2.push_back(new ComplexShape(tr_rec));
+    shapes2.push_back(new Circle(circle));
+
+    ComplexShape complex_shape(shapes2);
+    cout << "Complex shape(Complex shape(triangle and rectangle) and Circle) was created.\n";
+
+    cout << "\n";
+    cout << complex_shape.Info();
+
+    for (auto shape: shapes1) delete shape;
+    for (auto shape: shapes2) delete shape;
 
     return 0;
 }
