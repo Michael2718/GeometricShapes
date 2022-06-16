@@ -74,6 +74,10 @@ string ComplexShape::Info() const {
 
     oss << "Complex Shape Info:" << "\n";
 
+    oss << "Center: " << GetCenter() << "\n"
+        << "Perimeter: "<< Perimeter() << "\n"
+        << "Area: "<< Area() << "\n";
+
     for (auto shape: shapes) {
         oss << shape->Info();
         if (shape != shapes.back()) oss << "\n";
