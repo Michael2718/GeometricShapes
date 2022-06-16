@@ -15,7 +15,6 @@ public:
 
     std::vector<Point> GetPoints() const {return {p1, p2, p3};}
     Point GetCenter() const override {return center;}
-    std::vector<AbstractShape* > GetShapes() const override {return {};}
 
     void SetPoints(const std::vector<Point>& new_points);
 

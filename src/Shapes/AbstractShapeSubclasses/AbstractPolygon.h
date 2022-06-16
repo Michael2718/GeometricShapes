@@ -6,11 +6,11 @@
 
 class AbstractPolygon : public AbstractShape {
 private:
-    unsigned int vertex_count;
+    int vertex_count;
 public:
-    AbstractPolygon(ShapeId id, unsigned int vertex_count);
+    AbstractPolygon(ShapeId id, int vertex_count);
 
-    unsigned int GetVertexCount() const;
+    int GetVertexCount() const;
 
     std::string Info() const override;
 };

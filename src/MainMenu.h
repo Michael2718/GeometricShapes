@@ -1,5 +1,6 @@
 #include <iostream>
 #include <utility>
+#include <thread>
 #include <vector>
 #include <string>
 
@@ -14,7 +15,9 @@
 #include "Circle.h"
 #include "ComplexShape.h"
 
-using std::cout, std::cin, std::vector, std::string, std::exception, std::move;
+#include "QT/Draw.h"
+
+using std::cout, std::cin, std::vector, std::string, std::exception, std::move, std::thread;
 
 /* MAIN MENU */
 void PrintMainMenu() {
@@ -26,9 +29,9 @@ void PrintMainMenu() {
          << "4 - Add Shape.\n"
          << "5 - Remove Shape.\n"
          << "6 - Transform Shape.\n"
-         << "7 - Display all shapes.\n"
-         << "8 - Display specific shape.\n"
+         << "7 - Draw all shapes.\n"
          << "Selection: ";
+    // << "8 - Display specific shape.\n"
 }
 
 /* MAIN MENU OPTIONS */
@@ -368,7 +371,6 @@ vector<Point> InputTrapezoidPoints() {
 }
 
 Trapezoid CreateTrapezoid() {
-    Point center;
     vector<Point> points;
     while (true) {
         points = InputTrapezoidPoints();
@@ -606,7 +608,7 @@ void DeleteShape(vector<AbstractShape *>& shape_list, int index) {
         cout << "\n";
     } else {
         if (shape_list[index]->GetId() == COMPLEX_SHAPE) {
-            for (auto shape: shape_list[index]->GetShapes()) {
+            for (auto shape: dynamic_cast<ComplexShape*>(shape_list[index])->GetShapes()) {
                 shape->SetPartOfComplexShape(false);
             }
         }
@@ -703,9 +705,9 @@ void TransformShape(vector<AbstractShape *>& shape_list, int index, int choice) 
     cout << "\n";
 }
 
-void MainMenu(vector<AbstractShape *>& shape_list) {
+void MainMenu(int argc, char *argv[], vector<AbstractShape *>& shape_list) {
     int choice, shape_choice, delete_index, transform_index, transform_method;
-
+    thread draw_thread;
     system("clear");
     do {
         PrintMainMenu();
@@ -740,6 +742,15 @@ void MainMenu(vector<AbstractShape *>& shape_list) {
                 transform_index = SelectShapeFromListToTransform(shape_list);
                 transform_method = SelectTransformMethod();
                 TransformShape(shape_list, transform_index, transform_method);
+                break;
+            case 7:
+                cout << "Shapes are being drawn.\n";
+                Draw(argc, argv, shape_list);
+                //draw_thread = thread(Draw, argc, argv, shape_list);
+                //draw_thread.join();
+                cout << "\n";
+                cout << "Shapes were drawn successfully.\n";
+                cout << "\n";
                 break;
             default:
                 cout << "Invalid Choice.\n";

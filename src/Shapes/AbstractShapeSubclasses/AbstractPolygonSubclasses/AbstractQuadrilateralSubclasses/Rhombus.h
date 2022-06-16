@@ -14,7 +14,6 @@ public:
 
     double GetD1() const {return d1;}
     double GetD2() const {return d2;}
-    std::vector<AbstractShape* > GetShapes() const override {return {};}
 
     void Scale(double k) override;
 

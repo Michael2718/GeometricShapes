@@ -11,7 +11,6 @@ public:
     Circle(Point center, double r);
 
     double GetRadius() const {return r;}
-    std::vector<AbstractShape* > GetShapes() const override {return {};}
 
     void Scale(double k) override;
 

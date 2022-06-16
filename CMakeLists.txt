@@ -1,15 +1,14 @@
 cmake_minimum_required(VERSION 3.22)
 project(GeometricShapes)
 
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
 set(CMAKE_CXX_STANDARD 17)
 
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(GTKMM REQUIRED gtkmm-4.0)
-
-find_package(SFML 2.5 REQUIRED system window graphics network audio)
-
-link_directories(${GTKMM_LIBRARY_DIRS})
-include_directories(${GTKMM_INCLUDE_DIRS})
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(SHAPES_HEADERS
         src/Shapes/
@@ -44,15 +43,12 @@ set(SHAPES_SOURCES
         src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/Rhombus.cpp
         src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/Trapezoid.cpp)
 
-set(GTK_HEADERS
-        src/Gtk/DrawingArea.h
-        src/Gtk/Window.h
-        src/Gtk/Notebook.h)
+set(QT_HEADERS
+        src/QT/Draw.h
+        src/QT/Widget.h)
 
-set(GTK_SOURCES
-        src/Gtk/DrawingArea.cpp
-        src/Gtk/Window.cpp
-        src/Gtk/Notebook.cpp)
+set(QT_SOURCES
+        src/QT/Widget.cpp)
 
 add_executable(GeometricShapes_CLI ${SHAPES_HEADERS} src/MainMenu.h ${SHAPES_SOURCES} src/main_CLI.cpp)
 
@@ -72,14 +68,15 @@ target_include_directories(GeometricShapes_CLI PUBLIC
 add_executable(GeometricShapes
         ${SHAPES_HEADERS}
         ${SHAPES_SOURCES}
-        ${GTK_HEADERS}
-        ${GTK_SOURCES}
+        ${QT_HEADERS}
+        ${QT_SOURCES}
+        src/MainMenu.h
         src/main.cpp)
 
-target_link_libraries(GeometricShapes ${GTKMM_LIBRARIES})
+target_link_libraries(GeometricShapes Qt5::Widgets)
 
-target_include_directories(GeometricShapes PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/Gtk/)
+#target_include_directories(GeometricShapes PUBLIC
+#        ${CMAKE_CURRENT_SOURCE_DIR}/src/QT/)
 target_include_directories(GeometricShapes PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/)
 target_include_directories(GeometricShapes PUBLIC
@@ -91,7 +88,14 @@ target_include_directories(GeometricShapes PUBLIC
 target_include_directories(GeometricShapes PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/)
 
-add_executable(SandBox ${SHAPES_HEADERS} ${SHAPES_SOURCES} src/SandBox.cpp)
+add_executable(SandBox
+        ${SHAPES_HEADERS}
+        ${SHAPES_SOURCES}
+        ${QT_HEADERS}
+        ${QT_SOURCES}
+        src/SandBox.cpp)
+
+target_link_libraries(SandBox Qt5::Widgets)
 
 target_include_directories(SandBox PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/)
@@ -104,6 +108,4 @@ target_include_directories(SandBox PUBLIC
 target_include_directories(SandBox PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/)
 
-add_executable(SfmlTest src/SfmlTest.cpp)
 
-target_link_libraries(SfmlTest sfml-graphics sfml-system)

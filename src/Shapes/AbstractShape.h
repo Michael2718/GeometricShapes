@@ -27,7 +27,6 @@ public:
     ShapeId GetId() const {return id;}
     std::string GetStringId() const;
     virtual Point GetCenter() const = 0;
-    virtual std::vector<AbstractShape* > GetShapes() const = 0;
 
     bool isPartOfComplexShape() const {return part_of_complex_shape;}
     void SetPartOfComplexShape(bool state) {part_of_complex_shape = state;}
