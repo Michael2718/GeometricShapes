@@ -14,6 +14,7 @@ public:
 
     double GetWidth() const {return width;}
     double GetHeight() const {return height;}
+    std::vector<AbstractShape* > GetShapes() const override {return {};}
 
     void Scale(double k) override;
 

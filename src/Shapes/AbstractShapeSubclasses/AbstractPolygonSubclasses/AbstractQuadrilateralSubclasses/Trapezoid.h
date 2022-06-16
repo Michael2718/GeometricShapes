@@ -12,6 +12,7 @@ public:
 
     std::vector<double> GetSides() const {return {a, b, c, d};}
     double GetHeight() const {return h;}
+    std::vector<AbstractShape* > GetShapes() const override {return {};}
 
     void Scale(double k) override;
 

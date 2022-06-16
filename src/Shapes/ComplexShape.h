@@ -13,8 +13,8 @@ private:
 public:
     explicit ComplexShape(const std::vector<AbstractShape*> &shapes);
 
-    std::vector<AbstractShape*> GetShapes() const {return shapes;}
     Point GetCenter() const override {return center;}
+    std::vector<AbstractShape*> GetShapes() const override {return shapes;}
 
     void Scale(double k) override;
     void Rotate(double angle) override;

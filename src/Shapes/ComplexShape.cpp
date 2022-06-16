@@ -20,6 +20,11 @@ Point CalculateCenter(const vector<AbstractShape *> &shapes) {
 ComplexShape::ComplexShape(const vector<AbstractShape *> &shapes)
     : AbstractShape(COMPLEX_SHAPE), shapes(shapes), center(CalculateCenter(shapes)) {
     if (shapes.empty()) throw invalid_argument("Invalid number of shapes. Complex shape can't be empty.");
+    for (auto shape: shapes) {
+        if (shape->isPartOfComplexShape()) {
+            throw invalid_argument("Invalid shapes. Some of shapes are already in another Complex shape.");
+        }
+    }
 }
 
 void ComplexShape::Scale(double k) {

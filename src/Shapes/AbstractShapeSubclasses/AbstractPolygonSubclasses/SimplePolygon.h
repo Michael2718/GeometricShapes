@@ -15,6 +15,7 @@ public:
 
     std::vector<Point> GetVertices() const {return vertices;}
     Point GetCenter() const override {return center;}
+    std::vector<AbstractShape* > GetShapes() const override {return {};}
 
     void Scale(double k) override;
     void Rotate(double angle) override;
