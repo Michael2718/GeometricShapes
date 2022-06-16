@@ -11,11 +11,9 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(SHAPES_HEADERS
-        src/Shapes/
         src/Shapes/AbstractShape.h
         src/Shapes/Point.h
         src/Shapes/ComplexShape.h
-        src/Shapes/ShapeFactory.h
         src/Shapes/AbstractShapeSubclasses/AbstractEllipse.h
         src/Shapes/AbstractShapeSubclasses/AbstractPolygon.h
         src/Shapes/AbstractShapeSubclasses/AbstractEllipseSubclasses/Ellipse.h
@@ -31,7 +29,6 @@ set(SHAPES_SOURCES
         src/Shapes/AbstractShape.cpp
         src/Shapes/Point.cpp
         src/Shapes/ComplexShape.cpp
-        src/Shapes/ShapeFactory.cpp
         src/Shapes/AbstractShapeSubclasses/AbstractEllipse.cpp
         src/Shapes/AbstractShapeSubclasses/AbstractPolygon.cpp
         src/Shapes/AbstractShapeSubclasses/AbstractEllipseSubclasses/Ellipse.cpp

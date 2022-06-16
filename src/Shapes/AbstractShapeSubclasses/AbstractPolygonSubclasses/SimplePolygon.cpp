@@ -41,7 +41,7 @@ bool isPolygonSelfIntersecting(const std::vector<Point>& points) {
 }
 
 SimplePolygon::SimplePolygon(const vector<Point>& points)
-    : AbstractPolygon(SIMPLE_POLYGON, points.size()), vertices(points),
+    : AbstractPolygon(SIMPLE_POLYGON, (int)points.size()), vertices(points),
     center(CalculateCenter(points)) {
     if (vertices.size() < 3) throw invalid_argument("Invalid Polygon size.");
     for (int i = 0; i < points.size()-1; i++) {
