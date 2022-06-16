@@ -54,8 +54,10 @@ set(GTK_SOURCES
         src/Gtk/Window.cpp
         src/Gtk/Notebook.cpp)
 
-add_executable(GeometricShapes_CLI ${SHAPES_HEADERS} ${SHAPES_SOURCES} src/main_CLI.cpp)
+add_executable(GeometricShapes_CLI ${SHAPES_HEADERS} src/MainMenu.h ${SHAPES_SOURCES} src/main_CLI.cpp)
 
+target_include_directories(GeometricShapes_CLI PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/)
 target_include_directories(GeometricShapes_CLI PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/)
 target_include_directories(GeometricShapes_CLI PUBLIC
