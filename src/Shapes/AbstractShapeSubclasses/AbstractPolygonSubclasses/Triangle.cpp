@@ -7,7 +7,7 @@
 
 using std::invalid_argument, std::vector, std::string, std::ostringstream;
 
-Triangle::Triangle(std::vector<Point> points)
+Triangle::Triangle(vector<Point> points)
     : AbstractPolygon(TRIANGLE, 3), p1(points[0]), p2(points[1]), p3(points[2]),
     center({(p1.X()+p2.X()+p3.X())/3, (p1.Y()+p2.Y()+p3.Y())/3}) {
     if (points.size() != 3) throw invalid_argument("Invalid points.");
@@ -15,7 +15,7 @@ Triangle::Triangle(std::vector<Point> points)
     if(p1 == p2 || p1 == p2 || p1 == p3 || p2 == p3) throw invalid_argument("Invalid points.");
 }
 
-Triangle::Triangle(Point p1, Point p2, Point p3)
+[[maybe_unused]] Triangle::Triangle(Point p1, Point p2, Point p3)
     : AbstractPolygon(TRIANGLE, 3), p1(p1), p2(p2), p3(p3),
     center({(p1.X()+p2.X()+p3.X())/3, (p1.Y()+p2.Y()+p3.Y())/3}) {
     if (this->Area() == 0) throw invalid_argument("Invalid points.");

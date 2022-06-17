@@ -47,21 +47,6 @@ set(QT_HEADERS
 set(QT_SOURCES
         src/QT/Widget.cpp)
 
-add_executable(GeometricShapes_CLI ${SHAPES_HEADERS} src/MainMenu.h ${SHAPES_SOURCES} src/main_CLI.cpp)
-
-target_include_directories(GeometricShapes_CLI PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/)
-target_include_directories(GeometricShapes_CLI PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/)
-target_include_directories(GeometricShapes_CLI PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses)
-target_include_directories(GeometricShapes_CLI PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractEllipseSubclasses/)
-target_include_directories(GeometricShapes_CLI PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/)
-target_include_directories(GeometricShapes_CLI PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/)
-
 add_executable(GeometricShapes
         ${SHAPES_HEADERS}
         ${SHAPES_SOURCES}
@@ -72,8 +57,6 @@ add_executable(GeometricShapes
 
 target_link_libraries(GeometricShapes Qt5::Widgets)
 
-#target_include_directories(GeometricShapes PUBLIC
-#        ${CMAKE_CURRENT_SOURCE_DIR}/src/QT/)
 target_include_directories(GeometricShapes PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/)
 target_include_directories(GeometricShapes PUBLIC
@@ -104,5 +87,3 @@ target_include_directories(SandBox PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/)
 target_include_directories(SandBox PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/Shapes/AbstractShapeSubclasses/AbstractPolygonSubclasses/AbstractQuadrilateralSubclasses/)
-
-

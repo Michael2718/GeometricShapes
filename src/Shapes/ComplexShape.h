@@ -27,5 +27,4 @@ public:
     std::string Info() const override;
 };
 
-
 #endif //GEOMETRICSHAPES_COMPLEXSHAPE_H

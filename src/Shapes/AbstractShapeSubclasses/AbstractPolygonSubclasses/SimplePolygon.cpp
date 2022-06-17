@@ -6,7 +6,7 @@
 
 using std::invalid_argument, std::vector, std::string, std::ostringstream;
 
-double AreaOfTriangle(Point p1, Point p2, Point p3) {
+[[maybe_unused]] double AreaOfTriangle(Point p1, Point p2, Point p3) {
     return 0.5*std::abs(p1.X()*(p2.Y() - p3.Y()) +
                            p2.X()*(p3.Y() - p1.Y()) +
                            p3.X()*(p1.Y() - p2.Y()));

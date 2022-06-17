@@ -10,8 +10,9 @@ private:
 public:
     Trapezoid(Point p1, Point p2, Point p3, Point p4);
 
-    std::vector<double> GetSides() const {return {a, b, c, d};}
-    double GetHeight() const {return h;}
+    [[maybe_unused]] std::vector<double> GetSides() const {return {a, b, c, d};}
+
+    [[maybe_unused]] double GetHeight() const {return h;}
 
     void Scale(double k) override;
 

@@ -31,7 +31,6 @@ void PrintMainMenu() {
          << "6 - Transform Shape.\n"
          << "7 - Draw all shapes.\n"
          << "Selection: ";
-    // << "8 - Display specific shape.\n"
 }
 
 /* MAIN MENU OPTIONS */
@@ -406,7 +405,7 @@ Triangle CreateTriangle() {
     while (true) {
         points = InputPointsOfTriangle();
         try {
-            Triangle triangle(points[0], points[1], points[2]);
+            Triangle triangle(points);
             break;
         } catch (exception& ex) {
             cout << "Triangle was not created. " << ex.what() << " "
@@ -414,7 +413,7 @@ Triangle CreateTriangle() {
             continue;
         }
     }
-    return {points[0], points[1], points[2]};
+    return Triangle(points);
 }
 
 // ELLIPSE
@@ -746,8 +745,6 @@ void MainMenu(int argc, char *argv[], vector<AbstractShape *>& shape_list) {
             case 7:
                 cout << "Shapes are being drawn.\n";
                 Draw(argc, argv, shape_list);
-                //draw_thread = thread(Draw, argc, argv, shape_list);
-                //draw_thread.join();
                 cout << "\n";
                 cout << "Shapes were drawn successfully.\n";
                 cout << "\n";

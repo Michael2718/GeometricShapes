@@ -11,7 +11,8 @@ private:
     Point p1, p2, p3, center; // Center defined as centroid
 public:
     explicit Triangle(std::vector<Point> points);
-    Triangle(Point p1, Point p2, Point p3);
+
+    [[maybe_unused]] Triangle(Point p1, Point p2, Point p3);
 
     std::vector<Point> GetPoints() const {return {p1, p2, p3};}
     Point GetCenter() const override {return center;}

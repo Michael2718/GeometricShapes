@@ -12,8 +12,9 @@ public:
     Rhombus(Point center, double d1, double d2);
     Rhombus(Point center, Point p1, Point p2);
 
-    double GetD1() const {return d1;}
-    double GetD2() const {return d2;}
+    [[maybe_unused]] double GetD1() const {return d1;}
+
+    [[maybe_unused]] double GetD2() const {return d2;}
 
     void Scale(double k) override;
 

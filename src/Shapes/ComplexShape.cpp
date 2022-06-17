@@ -76,7 +76,9 @@ string ComplexShape::Info() const {
 
     oss << "Center: " << GetCenter() << "\n"
         << "Perimeter: "<< Perimeter() << "\n"
-        << "Area: "<< Area() << "\n";
+        << "Area: "<< Area() << "\n"
+        << "Info of nested shapes:" << "\n"
+        << "\n";
 
     for (auto shape: shapes) {
         oss << shape->Info();
