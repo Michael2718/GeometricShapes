@@ -623,7 +623,6 @@ void DeleteShape(vector<AbstractShape *>& shape_list, int index) {
 int SelectShapeFromListToTransform(vector<AbstractShape *>& shape_list) {
     int index;
     do {
-        PrintShapeList(shape_list);
         cout << "Select Shape from list to transform.\n"
              << "Enter shape index: ";
         cin >> index;
@@ -738,9 +737,12 @@ void MainMenu(int argc, char *argv[], vector<AbstractShape *>& shape_list) {
                 DeleteShape(shape_list, delete_index);
                 break;
             case 6:
-                transform_index = SelectShapeFromListToTransform(shape_list);
-                transform_method = SelectTransformMethod();
-                TransformShape(shape_list, transform_index, transform_method);
+                PrintShapeList(shape_list);
+                if (!shape_list.empty()) {
+                    transform_index = SelectShapeFromListToTransform(shape_list);
+                    transform_method = SelectTransformMethod();
+                    TransformShape(shape_list, transform_index, transform_method);
+                }
                 break;
             case 7:
                 cout << "Shapes are being drawn.\n";
