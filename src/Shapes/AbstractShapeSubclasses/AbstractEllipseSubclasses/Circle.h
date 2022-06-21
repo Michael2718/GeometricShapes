@@ -1,7 +1,7 @@
 #ifndef GEOMETRICSHAPES_CIRCLE_H
 #define GEOMETRICSHAPES_CIRCLE_H
 
-#include "../AbstractEllipse.h"
+#include "AbstractEllipse.h"
 #include <string>
 
 class Circle : public AbstractEllipse {
@@ -19,6 +19,5 @@ public:
 
     std::string Info() const override;
 };
-
 
 #endif //GEOMETRICSHAPES_CIRCLE_H
