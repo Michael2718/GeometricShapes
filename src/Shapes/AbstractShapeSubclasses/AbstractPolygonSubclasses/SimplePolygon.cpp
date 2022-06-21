@@ -56,8 +56,8 @@ void SimplePolygon::Scale(double k) {
     if (k <= 0) throw invalid_argument("Invalid scale factor k.");
     vector<Point> new_vertices;
     for (auto point: GetVertices()) {
-        new_vertices.emplace_back(k*point.X()+(1-k)*center.X(),
-                                  k*point.Y()+(1-k)*center.Y());
+        new_vertices.emplace_back(k*(point.X()-center.X())+center.X(),
+                                  k*(point.Y()-center.Y())+center.Y());
     }
     SetVertices(new_vertices);
 }

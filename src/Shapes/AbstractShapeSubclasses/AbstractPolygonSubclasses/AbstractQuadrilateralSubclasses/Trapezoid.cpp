@@ -30,8 +30,8 @@ void Trapezoid::Scale(double k) {
     d *= k;
     vector<Point> new_points;
     for (auto point: GetPoints()) {
-        new_points.emplace_back(k*point.X()+(1-k)*GetCenter().X(),
-                                k*point.Y()+(1-k)*GetCenter().Y());
+        new_points.emplace_back(k*(point.X()-GetCenter().X())+GetCenter().X(),
+                                k*(point.Y()-GetCenter().Y())+GetCenter().Y());
     }
     SetPoints(new_points);
 }

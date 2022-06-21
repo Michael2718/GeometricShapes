@@ -32,8 +32,8 @@ void Triangle::Scale(double k) {
     if (k <= 0) throw invalid_argument("Invalid scale factor k.");
     vector<Point> new_points;
     for (auto point: GetPoints()) {
-        new_points.emplace_back(k*point.X()+(1-k)*center.X(),
-                                k*point.Y()+(1-k)*center.Y());
+        new_points.emplace_back(k*(point.X()-center.X())+center.X(),
+                                k*(point.Y()-center.Y())+center.Y());
     }
     SetPoints(new_points);
 }
