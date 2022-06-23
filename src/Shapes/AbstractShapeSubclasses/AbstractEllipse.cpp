@@ -12,6 +12,7 @@ void AbstractEllipse::Rotate(double angle) {
 }
 
 void AbstractEllipse::Rotate(Point r_center, double angle) {
+    center.Rotate(r_center, angle);
     rotation_angle += angle;
 }
 

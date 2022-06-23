@@ -72,6 +72,7 @@ void SimplePolygon::Rotate(double angle) {
 
 void SimplePolygon::Rotate(Point r_center, double angle) {
     vector<Point> new_vertices;
+    r_center.Rotate(r_center, angle);
     for (auto point: GetVertices()) {
         new_vertices.emplace_back(point.Rotate(r_center, angle));
     }

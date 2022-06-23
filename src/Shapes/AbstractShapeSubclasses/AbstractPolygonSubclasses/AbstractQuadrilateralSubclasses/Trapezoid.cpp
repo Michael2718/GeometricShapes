@@ -28,6 +28,7 @@ void Trapezoid::Scale(double k) {
     b *= k;
     c *= k;
     d *= k;
+    h *= k;
     vector<Point> new_points;
     for (auto point: GetPoints()) {
         new_points.emplace_back(k*(point.X()-GetCenter().X())+GetCenter().X(),
@@ -54,4 +55,3 @@ string Trapezoid::Info() const {
 
     return oss.str();
 }
-
